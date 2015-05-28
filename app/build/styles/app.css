@@ -1,0 +1,357 @@
+@font-face {
+  font-family: 'LetterGothicStd';
+  src: url("../fonts/LetterGothicStd.eot");
+  src: url("../fonts/LetterGothicStd.eot") format("embedded-opentype"), url("../fonts/LetterGothicStd.woff") format("woff"), url("../fonts/LetterGothicStd.ttf") format("truetype"), url("../fonts/LetterGothicStd.svg#LetterGothicStd") format("svg"); }
+@font-face {
+  font-family: 'LetterGothicStdBold';
+  src: url("../fonts/LetterGothicStdBold.eot");
+  src: url("../fonts/LetterGothicStdBold.eot") format("embedded-opentype"), url("../fonts/LetterGothicStdBold.woff2") format("woff2"), url("../fonts/LetterGothicStdBold.woff") format("woff"), url("../fonts/LetterGothicStdBold.ttf") format("truetype"), url("../fonts/LetterGothicStdBold.svg#LetterGothicStdBold") format("svg"); }
+@font-face {
+  font-family: 'LetterGothicStdSlanted';
+  src: url("../fonts/LetterGothicStdSlanted.eot");
+  src: url("../fonts/LetterGothicStdSlanted.eot") format("embedded-opentype"), url("../fonts/LetterGothicStdSlanted.woff2") format("woff2"), url("../fonts/LetterGothicStdSlanted.woff") format("woff"), url("../fonts/LetterGothicStdSlanted.ttf") format("truetype"), url("../fonts/LetterGothicStdSlanted.svg#LetterGothicStdSlanted") format("svg"); }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: #fff; }
+
+body {
+  margin: 0;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #fff; }
+
+.fp-section {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari<=5 Android<=3 */
+  -moz-box-sizing: border-box;
+  /* <=28 */
+  box-sizing: border-box; }
+
+.fp-section.fp-table, .fp-slide.fp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+
+.fp-tableCell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%; }
+
+.section {
+  width: auto;
+  padding: 80px 0px; }
+
+#section0 {
+  height: 100%;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background: url(../images/paneOne.jpg) bottom left; }
+  #section0 img {
+    width: 400px;
+    margin: -80px auto 0px; }
+
+#section1 {
+  background: #ffffff;
+  color: #333; }
+  #section1 .hotel-details a {
+    color: #333;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px 0px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    #section1 .hotel-details a p {
+      margin: 0px; }
+      #section1 .hotel-details a p.telephone-number {
+        margin: 15px 0px; }
+      #section1 .hotel-details a p.hotel-name {
+        font-size: 18px; }
+    #section1 .hotel-details a img {
+      width: 50%;
+      margin-bottom: 20px; }
+    #section1 .hotel-details a:hover {
+      background: #b7cfea;
+      color: #fff; }
+
+#section2 {
+  background: #97acbf; }
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  padding: 20px 0px;
+  z-index: 2; }
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center; }
+
+header nav ul li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 10px;
+  color: #fff;
+  padding: 8px 23px 6px;
+  text-transform: uppercase;
+  border: 1px solid transparent; }
+  header nav ul li:last-child {
+    margin-right: 0px; }
+  header nav ul li a {
+    text-decoration: none;
+    color: #fff; }
+    header nav ul li a:hover {
+      text-decoration: none;
+      color: #fff; }
+    header nav ul li a:focus {
+      color: #ffffff;
+      text-decoration: none; }
+
+header nav ul li.active {
+  border: 1px solid #fff;
+  border-radius: 1em; }
+
+.vertical-center {
+  height: 100%;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
+.button {
+  padding: 0 10px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #FFF;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 7px 50px;
+  text-align: center;
+  display: table;
+  margin: 0px auto 0;
+  text-align: center;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease; }
+
+.button:hover {
+  background: white;
+  color: #350060;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease; }
+
+#fp-nav {
+  top: 50%;
+  right: 20px;
+  position: fixed; }
+  #fp-nav ul {
+    margin: 0px; }
+    #fp-nav ul li {
+      list-style-type: none; }
+      #fp-nav ul li a {
+        cursor: pointer;
+        border-radius: 50%;
+        list-style: none;
+        border: 2px solid white;
+        height: 14px;
+        width: 14px;
+        margin: 5px 0px;
+        background: white;
+        display: block; }
+        #fp-nav ul li a.active {
+          background: transparent; }
+
+.top-margin-5 {
+  margin-top: 5px; }
+
+.top-margin-10 {
+  margin-top: 10px; }
+
+.top-margin-15 {
+  margin-top: 15px; }
+
+.top-margin-20 {
+  margin-top: 20px; }
+
+.top-margin-25 {
+  margin-top: 25px; }
+
+.top-margin-30 {
+  margin-top: 30px; }
+
+.top-margin-0 {
+  margin-top: 0px; }
+
+.bottom-margin-0 {
+  margin-bottom: 0px; }
+
+.bottom-margin-5 {
+  margin-bottom: 5px; }
+
+.bottom-margin-10 {
+  margin-bottom: 10px; }
+
+.bottom-margin-15 {
+  margin-bottom: 15px; }
+
+.bottom-margin-20 {
+  margin-bottom: 20px; }
+
+.bottom-margin-25 {
+  margin-bottom: 25px; }
+
+.bottom-margin-30 {
+  margin-top: 30px; }
+
+.right-margin-0 {
+  margin-right: 0px; }
+
+.right-margin-5 {
+  margin-right: 5px; }
+
+.right-margin-10 {
+  margin-right: 10px; }
+
+.right-margin-15 {
+  margin-right: 15px; }
+
+.right-margin-20 {
+  margin-right: 20px; }
+
+.right-margin-25 {
+  margin-right: 25px; }
+
+.right-margin-30 {
+  margin-top: 30px; }
+
+.left-margin-0 {
+  margin-left: 0px; }
+
+.left-margin-5 {
+  margin-left: 5px; }
+
+.left-margin-10 {
+  margin-left: 10px; }
+
+.left-margin-15 {
+  margin-left: 15px; }
+
+.left-margin-20 {
+  margin-left: 20px; }
+
+.left-margin-25 {
+  margin-left: 25px; }
+
+.left-margin-30 {
+  margin-top: 30px; }
+
+.top-padding-0 {
+  margin-top: 0px; }
+
+.top-padding-5 {
+  padding-top: 5px; }
+
+.top-padding-10 {
+  padding-top: 10px; }
+
+.top-padding-15 {
+  padding-top: 15px; }
+
+.top-padding-20 {
+  padding-top: 20px; }
+
+.top-padding-25 {
+  padding-top: 25px; }
+
+.top-padding-30 {
+  padding-top: 30px; }
+
+.bottom-padding-0 {
+  margin-bottom: 0px; }
+
+.bottom-padding-5 {
+  padding-bottom: 5px; }
+
+.bottom-padding-10 {
+  padding-bottom: 10px; }
+
+.bottom-padding-15 {
+  padding-bottom: 15px; }
+
+.bottom-padding-20 {
+  padding-bottom: 20px; }
+
+.bottom-padding-25 {
+  padding-top: 25px; }
+
+.bottom-padding-30 {
+  padding-bottom: 30px; }
+
+.left-padding-0 {
+  margin-left: 0px; }
+
+.left-padding-5 {
+  padding-left: 5px; }
+
+.left-padding-10 {
+  padding-left: 10px; }
+
+.left-padding-15 {
+  padding-left: 15px; }
+
+.left-padding-20 {
+  padding-left: 20px; }
+
+.left-padding-25 {
+  padding-top: 25px; }
+
+.left-padding-30 {
+  padding-left: 30px; }
+
+.right-padding-0 {
+  margin-right: 0px; }
+
+.right-padding-5 {
+  padding-right: 5px; }
+
+.right-padding-10 {
+  padding-right: 10px; }
+
+.right-padding-15 {
+  padding-right: 15px; }
+
+.right-padding-20 {
+  padding-right: 20px; }
+
+.right-padding-25 {
+  padding-top: 25px; }
+
+.right-padding-30 {
+  padding-right: 30px; }
+
+/*# sourceMappingURL=app.css.map */

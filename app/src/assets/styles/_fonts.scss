@@ -1,0 +1,29 @@
+@font-face {
+font-family: 'LetterGothicStd';
+src: url('../fonts/LetterGothicStd.eot');
+src: url('../fonts/LetterGothicStd.eot') format('embedded-opentype'),
+
+url('../fonts/LetterGothicStd.woff') format('woff'),
+url('../fonts/LetterGothicStd.ttf') format('truetype'),
+url('../fonts/LetterGothicStd.svg#LetterGothicStd') format('svg');
+}
+
+@font-face {
+font-family: 'LetterGothicStdBold';
+src: url('../fonts/LetterGothicStdBold.eot');
+src: url('../fonts/LetterGothicStdBold.eot') format('embedded-opentype'),
+url('../fonts/LetterGothicStdBold.woff2') format('woff2'),
+url('../fonts/LetterGothicStdBold.woff') format('woff'),
+url('../fonts/LetterGothicStdBold.ttf') format('truetype'),
+url('../fonts/LetterGothicStdBold.svg#LetterGothicStdBold') format('svg');
+}
+
+@font-face {
+font-family: 'LetterGothicStdSlanted';
+src: url('../fonts/LetterGothicStdSlanted.eot');
+src: url('../fonts/LetterGothicStdSlanted.eot') format('embedded-opentype'),
+url('../fonts/LetterGothicStdSlanted.woff2') format('woff2'),
+url('../fonts/LetterGothicStdSlanted.woff') format('woff'),
+url('../fonts/LetterGothicStdSlanted.ttf') format('truetype'),
+url('../fonts/LetterGothicStdSlanted.svg#LetterGothicStdSlanted') format('svg');
+}
