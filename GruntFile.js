@@ -11,6 +11,7 @@ var scriptsList = {
 	],
 	'app/build/scripts/plugins.min.js': [
 		paths.bower + 'jquery/dist/jquery.min.js',
+		paths.assets + 'scripts/vendor/modernizr.js',
 		paths.bower + 'fullpage.js/jquery.fullPage.min.js',
 	]
 };

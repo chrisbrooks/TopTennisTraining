@@ -15,7 +15,8 @@ html, body {
   padding: 0;
   height: 100%;
   -webkit-tap-highlight-color: transparent;
-  background: #fff; }
+  background: #fff;
+  color: #aabdd4; }
 
 body {
   margin: 0;
@@ -23,6 +24,16 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #fff; }
+
+h2 {
+  font-size: 60px;
+  font-weight: 100;
+  margin: 0px 0px 40px 0px; }
+
+.button:hover {
+  background: #fff;
+  color: #000;
+  text-decoration: none; }
 
 .fp-section {
   position: relative;
@@ -57,38 +68,141 @@ body {
     margin: -80px auto 0px; }
 
 #section1 {
-  background: #ffffff;
-  color: #333; }
-  #section1 .hotel-details a {
-    color: #333;
-    display: block;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    padding: 20px 0px;
-    border-top: 1px solid #eaeaea;
-    border-bottom: 1px solid #eaeaea;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out; }
-    #section1 .hotel-details a p {
-      margin: 0px; }
-      #section1 .hotel-details a p.telephone-number {
-        margin: 15px 0px; }
-      #section1 .hotel-details a p.hotel-name {
-        font-size: 18px; }
-    #section1 .hotel-details a img {
-      width: 50%;
-      margin-bottom: 20px; }
-    #section1 .hotel-details a:hover {
-      background: #b7cfea;
-      color: #fff; }
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background: url(../images/bg.png) bottom left #312f23;
+  color: #fff; }
+  #section1 p {
+    margin-bottom: 40px; }
+  #section1 .flipper-container, #section1 .front, #section1 .back, #section1 .flipper {
+    height: 200px; }
+  #section1 .flipper-container:hover .flipper, #section1 .flipper-container.hover .flipper, #section1 #flip-toggle.flip .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    filter: FlipH;
+    -ms-filter: "FlipH"; }
+  #section1 .flipper-container {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -ms-transform: perspective(1000px);
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d; }
+    #section1 .flipper-container .flipper {
+      -webkit-transition: 0.6s;
+      -webkit-transform-style: preserve-3d;
+      -ms-transition: 0.6s;
+      -moz-transition: 0.6s;
+      -moz-transform: perspective(1000px);
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      transition: 0.6s;
+      transform-style: preserve-3d;
+      position: relative; }
+      #section1 .flipper-container .flipper .front, #section1 .flipper-container .flipper .back {
+        height: 200px;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: 0.6s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: rotateY(0deg);
+        -moz-transition: 0.6s;
+        -moz-transform-style: preserve-3d;
+        -moz-transform: rotateY(0deg);
+        -o-transition: 0.6s;
+        -o-transform-style: preserve-3d;
+        -o-transform: rotateY(0deg);
+        -ms-transition: 0.6s;
+        -ms-transform-style: preserve-3d;
+        -ms-transform: rotateY(0deg);
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        transform: rotateY(0deg);
+        position: absolute;
+        top: 0;
+        left: 0; }
+      #section1 .flipper-container .flipper .front {
+        background: #000;
+        display: table;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        z-index: 2; }
+        #section1 .flipper-container .flipper .front p {
+          line-height: 38px;
+          font-size: 34px;
+          font-weight: 100;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center; }
+      #section1 .flipper-container .flipper .back {
+        background: #000;
+        display: table;
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+        transform: rotateY(-180deg); }
+        #section1 .flipper-container .flipper .back a {
+          color: #eaeaea;
+          display: block;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 300;
+          text-align: center;
+          padding: 20px 0px;
+          -webkit-transition: all 0.5s ease-in-out;
+          -moz-transition: all 0.5s ease-in-out;
+          -ms-transition: all 0.5s ease-in-out;
+          -o-transition: all 0.5s ease-in-out;
+          transition: all 0.5s ease-in-out; }
+          #section1 .flipper-container .flipper .back a p {
+            margin: 0px; }
+            #section1 .flipper-container .flipper .back a p.telephone-number {
+              margin: 15px 0px; }
+            #section1 .flipper-container .flipper .back a p.hotel-name {
+              font-weight: 400;
+              margin-bottom: 10px; }
+            #section1 .flipper-container .flipper .back a p.hotel-number {
+              margin-bottom: 10px;
+              margin-top: 10px; }
+            #section1 .flipper-container .flipper .back a p.hotel-amount {
+              margin-bottom: 10px; }
+          #section1 .flipper-container .flipper .back a img {
+            width: 50%;
+            margin-bottom: 20px; }
 
 #section2 {
-  background: #97acbf; }
+  background: #95a7bf; }
+  #section2 .button {
+    margin-top: 40px; }
+
+#section3 {
+  position: relative; }
+  #section3.map-container {
+    margin: 0px;
+    width: 100%;
+    height: 500px; }
+    @media (max-width: 767px) {
+      #section3.map-container {
+        height: 300px; } }
+    #section3.map-container #map-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important; }
+      #section3.map-container #map-canvas p {
+        margin-bottom: 0px;
+        font-weight: 500; }
+      #section3.map-container #map-canvas h3 {
+        margin-top: 0px; }
 
 header {
   position: fixed;
