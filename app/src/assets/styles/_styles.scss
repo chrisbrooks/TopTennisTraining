@@ -81,7 +81,7 @@ h2{
 #section1{
 	background-attachment: fixed !important;
 	background-size: cover !important;
-	background: url(../images/bg.png) bottom left #312f23;;
+	background: #596c81;
 	color:$white;
 	p{
 		margin-bottom:40px;
@@ -105,8 +105,8 @@ h2{
 		perspective: 1000;
 		-ms-transform: perspective(1000px);
 		-moz-transform: perspective(1000px);
-		-moz-transform-style: preserve-3d; 
-		-ms-transform-style: preserve-3d; 
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
 		.flipper{
 			-webkit-transition: 0.6s;
 			-webkit-transform-style: preserve-3d;
@@ -151,7 +151,8 @@ h2{
 				left: 0;
 			}
 			.front{
-				background: $black;
+				border: 2px solid #fff;
+				border-radius: 5px;
 	  			display: table;
 	  			-webkit-transform: rotateY(0deg);
 				-ms-transform: rotateY(0deg);
@@ -166,7 +167,9 @@ h2{
 				}
 			}
 			.back{
-				background: $black;
+				background: #54667a;
+				border: 2px solid #fff;
+				border-radius: 5px;
 				  display: table;
 				-webkit-transform: rotateY(-180deg);
 			    -moz-transform: rotateY(-180deg);
@@ -203,7 +206,7 @@ h2{
 						width: 50%;
 						margin-bottom: 20px;
 					}
-					
+
 				}
 			}
 		}
@@ -261,7 +264,6 @@ header nav ul li{
 	margin-right: 10px;
 	color: #fff;
 	padding: 8px 23px 6px;
-	text-transform: uppercase;
 	border: 1px solid transparent;
 	&:last-child{
 		margin-right:0px;

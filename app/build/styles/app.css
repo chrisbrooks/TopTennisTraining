@@ -70,7 +70,7 @@ h2 {
 #section1 {
   background-attachment: fixed !important;
   background-size: cover !important;
-  background: url(../images/bg.png) bottom left #312f23;
+  background: #596c81;
   color: #fff; }
   #section1 p {
     margin-bottom: 40px; }
@@ -129,7 +129,8 @@ h2 {
         top: 0;
         left: 0; }
       #section1 .flipper-container .flipper .front {
-        background: #000;
+        border: 2px solid #fff;
+        border-radius: 5px;
         display: table;
         -webkit-transform: rotateY(0deg);
         -ms-transform: rotateY(0deg);
@@ -142,7 +143,9 @@ h2 {
           vertical-align: middle;
           text-align: center; }
       #section1 .flipper-container .flipper .back {
-        background: #000;
+        background: #54667a;
+        border: 2px solid #fff;
+        border-radius: 5px;
         display: table;
         -webkit-transform: rotateY(-180deg);
         -moz-transform: rotateY(-180deg);
@@ -223,7 +226,6 @@ header nav ul li {
   margin-right: 10px;
   color: #fff;
   padding: 8px 23px 6px;
-  text-transform: uppercase;
   border: 1px solid transparent; }
   header nav ul li:last-child {
     margin-right: 0px; }
