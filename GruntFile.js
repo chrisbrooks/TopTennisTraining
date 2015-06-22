@@ -7,12 +7,15 @@ var paths = {
 
 var scriptsList = {
 	'app/build/scripts/combined.min.js': [
-		paths.assets + 'scripts/custom/script.js'
+		paths.assets + 'scripts/custom/script.js',
+		paths.assets + 'scripts/custom/maps.js'
 	],
 	'app/build/scripts/plugins.min.js': [
 		paths.bower + 'jquery/dist/jquery.min.js',
 		paths.assets + 'scripts/vendor/modernizr.js',
-		paths.bower + 'fullpage.js/jquery.fullPage.min.js',
+		paths.assets + 'scripts/vendor/jquery.nav.js',
+		paths.bower + 'jQuery.mmenu/dist/js/jquery.mmenu.min.js',
+		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js'
 	]
 };
 
@@ -37,8 +40,7 @@ module.exports = function(grunt) {
 
 			development : {
 				options: {
-					beautify: true,
-					compress: false
+					compress: true
 				},
 				files: scriptsList
 			},
@@ -52,6 +54,7 @@ module.exports = function(grunt) {
 
 			development: {
 				options: {
+					style: 'compressed'
 				},
 				files: {
 					'app/build/styles/app.css': paths.assets + 'styles/app.scss',
@@ -95,15 +98,6 @@ module.exports = function(grunt) {
 					cwd: paths.assets + 'media',
 					src: ['**/*.{png,jpg,gif,svg}'],
 					dest: paths.build + 'media/'
-				}]
-			},
-
-			styles: {
-				files: [{
-					expand: true,
-					cwd: paths.bower + 'bootstrap/dist/css',
-					src: ['**/bootstrap.css'],
-					dest: paths.build + 'styles/'
 				}]
 			},
 
