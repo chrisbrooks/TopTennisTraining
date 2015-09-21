@@ -1,109 +1,43 @@
-$(document).ready(function () {
-    var fadeStart = 1,
-        fadeUntil = 250,
-        fading = $('.hi-icon, header .container ul.social, .btn-navbar');
-    $(window).bind('scroll', function () {
-        var offset = $(document).scrollTop(),
-            opacity = 0;
-        if (offset <= fadeStart) {
-            opacity = 1;
-        } else if (offset <= fadeUntil) {
-            opacity = 1 - offset / fadeUntil;
-        }
-        fading.css('opacity', opacity);
-    });
+$( document ).ready(function() {
+   //$('.menu').spasticNav();
 
-    // scroll top button
-    $(".scroll-button").hide();
-    $(function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $('.scroll-button').fadeIn();
-            } else {
-                $('.scroll-button').fadeOut();
-            }
-        });
-        $('.scroll-button').click(function () {
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-    });
+    //$(".navigation").sticky({ topSpacing: 0 });
 
-    //main logo animate in
-    $('.hi-icon, ul.social li').delay(500).animate({'opacity' : '1',  '-ms-filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)'}, 500);
-
-	//image preloader
-   $(function(){
-	$(".item-content-panel").preloader();
+	$('.menu').on({
+		mouseenter: function (){
+			$(this).addClass('open-dropdown');
+		},
+		mouseleave:function (){
+			$(this).removeClass('open-dropdown');
+		}
 	});
 
-    //nav drop down toggle
-    $(".btn-navbar, .btn-navbar .dropdown li a").click(function () {
-        $('.btn-navbar .dropdown').toggleClass('active');
+	$('.menu > li').on('mouseover', function(){
+		var numItems = 100 / $(this).find('.dropdown > ul > li').length ;
+		
+		$(this).find('.dropdown > ul > li').css('width', numItems + '%');
+	});
 
-    });
+	$(window).scroll(function() {
+	    if ($(window).scrollTop() >= 1) {
+	        $('.navigation').addClass('background');
+	    }else{
+	    	$('.navigation').removeClass('background');
+	    }
+	});
 
-    //scroll functions for drop down
-    $('.dropdown li .home').click(function () {
-        $.scrollTo(0, 800, {
-            easing: 'jswing'
-        });
-        return false;
-    });
+	twitterFetcher.fetch({
+		"id": '639691526692601856',
+		"domId": 'twitter-feed',
+		"maxTweets": 20,
+		"enableLinks": true,
+		"showImages": true
+	});
 
-    $('.dropdown li .port, .close').click(function () {
-        $.scrollTo('#portfolio', 800, {
-            easing: 'jswing',
-            offset: -25
-        });
-        return false;
-    });
+	var height = ($(window).height() / 10) * 10;
+//
+//		console.log(windowHeight);
+//
+	$('.banner').css('height', height);
 
-    $('.dropdown li .aboutme').click(function () {
-        $.scrollTo('#aboutme', 800, {
-            easing: 'jswing',
-            offset: -25
-        });
-        return false;
-    });
-
-    //hover effect for portfolio list elements
-    $(function () {
-        $("section#portfolio .container ul li").css("opacity", "1.0");
-        $("section#portfolio .container ul li").hover(function () {
-                $(this).siblings().stop().animate({'opacity': '0.4', '-ms-filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=40)' }, 500);
-            },
-            function () {
-                $("section#portfolio .container ul li").stop().animate({
-                    'opacity': '1', '-ms-filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)'
-                }, "slow");
-            });
-    });
-
-  //header slider
-  $(function() {
-    var bar = $('#headerSlideContainer');
-    var top = bar.css('top');
-    $(window).scroll(function() {
-      if($(this).scrollTop() > 50) {
-        bar.stop().animate({'top' : '0px'}, 200);
-      } else {
-        bar.stop().animate({'top' : top}, 200);
-      }
-    });
-  });
-
-	//$(function(){
-    //$('header').css({'height':(($(window).height()))+'px'});
-
-    //$(window).resize(function(){
-    //$('header').css({'height':(($(window).height()))+'px'});
-    //});
-//});
-
-
-
-}); //end ready
-
+});

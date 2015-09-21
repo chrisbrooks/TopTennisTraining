@@ -1,0 +1,315 @@
+/*header{
+	.sub-navigation{
+		background:$darkBlue;
+		height:40px;
+		.sign-in{
+			float: right;
+			color: white;
+			padding: 9px 0px;
+			&:hover{
+				color:$blue;
+			}
+		}
+	}
+	.navigation{
+		background:$blue;
+		width: 100%;
+		.logo{
+			display:block;
+			background: url("../images/logo.png");
+			height: 54px;
+			width: 101px;
+			background-size: cover;
+			margin: 10px 0px;
+			float: left;
+		}
+		.menu:before, &:after{
+			content: " ";
+			display: table;
+		}
+		.menu:after{
+			clear: both;
+		}
+		.menu {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			float:right;
+			margin-right:-20px;
+			z-index: 1;
+			position: relative;
+			> li{
+				float: left;
+				z-index: 1;
+				&#blob {
+					position: absolute;
+					z-index: 0;
+					bottom: 0;
+					width: 0;
+					padding:0px;
+					span{
+						border-left: 10px solid transparent;
+						border-right: 10px solid transparent;
+						border-bottom: 10px solid white;
+						display: table;
+						margin: 0 auto;	
+					}
+				}
+				a {
+					display: block;
+					padding: 27px 20px;
+					text-decoration: none;
+					white-space: nowrap;
+					color: #fff;
+					text-transform: uppercase;
+					font-size:14px;
+					position: relative;
+					z-index: 2;
+					@include transition(all, .35s, ease);
+				}
+			}
+		}
+		.menu li{
+			&:hover{
+				> ul{
+					opacity: 1;
+					visibility: visible;
+					position: absolute;
+					display: block;
+				}
+			}
+		}
+		.menu > li > ul{
+			position: absolute;
+			border-bottom: 1px solid #eee;
+			background: $white;
+			opacity: 0;
+			visibility: hidden;
+			@include transition(all, .35s, ease);
+			li{
+				border-top:0;
+				border-left: 1px solid #eee;
+				border-right: 1px solid #eee;
+				float:none;
+				position: relative;
+				a{
+					padding: 10px 20px;
+					color: $darkBlue;
+					text-transform: none;
+					&:hover{
+						color:$blue;
+					}
+				}
+			}
+		}
+		.menu > li > ul > li > ul{
+			position: absolute;
+			left: 100%;
+			top: 0;
+			background: $white;			
+			display: none;
+			position: relative;	
+			@include transition(all, .0s, ease);
+			li{
+				float: none;
+				a{
+					color:$darkBlue;	
+				}
+			}
+		}
+	}
+}*/
+
+header{
+	position: fixed;
+    z-index: 2;
+    width: 100%;
+	.sub-navigation{
+		/*display: none;*/
+		background:$blue;
+		height:30px;
+
+		.sign-in{
+			float: right;
+			color: white;
+			padding: 8px 0px;
+			text-transform: uppercase;
+			font-size: 10px;
+			letter-spacing: 2px;
+
+			&:hover{
+				color:$blue;
+			}
+		}
+	}
+	
+	.navigation{
+		width: 100%;
+		z-index: 3;
+		@include transition(background, .35s, ease);
+		background: $darkBlue;
+		&.background{
+			background: $darkBlue;
+		}
+		/*.graphic-logo{
+			background:$blue;
+			width: 120px;
+			height: 71px;
+			float: left;
+			position: relative;
+    		&:before{
+				right: -17px;
+				border-left: 17px solid #3bc6f3;
+				border-bottom: 72px solid transparent;
+				content: "";
+				position: absolute;
+				top: 0px;
+				width: 0;
+				height: 0;
+    		}
+			&:after{
+				background: url("../images/logo-graphic-white.png");
+				content: '';
+				position: absolute;
+				height: 42px;
+				width: 69px;
+				background-size: cover;
+				left: 30px;
+				top: 12px;
+			}
+		}*/
+		.logo-container{
+			display: block;
+			float: left;
+			color: white;
+			font-size: 12px;
+			padding: 12px 0px;
+			position: relative;
+			letter-spacing:1px;
+			.logo{
+				display:block;
+				background: url("../images/logo-text-white.png");
+				height: 30px;
+				width: 47px;
+				background-size: cover;
+				margin: 0 auto;
+			}
+		}
+
+		.menu {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			float:right;
+			z-index: 1;
+			margin-right:-20px;
+			&.open-dropdown{
+				.dropdown{
+					@include transition(all, 0s, ease);
+				}
+			}
+
+			> li{
+				display: block;
+				float: left;
+				z-index: 1;
+
+				&:hover{
+					.dropdown{
+						opacity:1;
+						visibility: visible;
+
+						ul{
+							opacity:1;
+							visibility: visible;
+						}
+					}
+					a{
+						/*background:#34add4;*/
+					}
+				}
+
+				a {
+					display: block;
+					padding: 27px 20px;
+					text-decoration: none;
+					white-space: nowrap;
+					color: #fff;
+					text-transform: uppercase;
+					font-size:12px;
+					position: relative;
+					z-index: 1;
+					position: relative;
+					letter-spacing:2px;
+					
+					&:after{
+						content: ' ';
+						display: block;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						z-index: -1;
+						right: 0;
+						height: 0%;
+						background: #03639d;
+						transition: height 0.12s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+					}
+					&:hover{
+						&:after{
+							height: 100%;
+						}
+						
+					}
+				}
+			}
+		}	
+		.dropdown{
+			background:#34add4;
+			padding:30px 20px;
+			position: absolute;
+			@include transition(all, .35s, ease);
+		    left: 0px;
+		    width: 100%;
+		    z-index: 3;
+		    opacity: 0;
+		    visibility: hidden;
+			ul{
+				float:none;
+				@include transition(all, 0.7s, ease);
+				opacity: 0;
+				visibility: hidden;
+
+				li{
+					float:left;
+					div{
+						display: table;
+	    				margin: 0 auto;
+
+						a{
+							color: #a3e9ff;
+							font-size: 22px;
+							padding:0px;
+							text-transform: none;
+						}
+
+						ul{
+							padding-top:15px;
+
+							li{
+								float:none;
+								padding-bottom: 5px;
+								width:auto;
+								color:white;
+
+								a{
+									color:white;
+									font-size: 15px;
+								}
+							}
+						}
+					}	
+				}
+			}
+		}	
+	}
+}

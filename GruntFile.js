@@ -7,15 +7,17 @@ var paths = {
 
 var scriptsList = {
 	'app/build/scripts/combined.min.js': [
-		paths.assets + 'scripts/custom/script.js',
-		paths.assets + 'scripts/custom/maps.js'
+		paths.assets + 'scripts/custom/vimeo.js',
+		paths.assets + 'scripts/custom/twitter.js',
+		paths.assets + 'scripts/custom/initialize.js',
 	],
 	'app/build/scripts/plugins.min.js': [
 		paths.bower + 'jquery/dist/jquery.min.js',
-		paths.assets + 'scripts/vendor/modernizr.js',
-		paths.assets + 'scripts/vendor/jquery.nav.js',
 		paths.bower + 'jQuery.mmenu/dist/js/jquery.mmenu.min.js',
-		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js'
+		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js',
+		paths.assets + 'scripts/vendor/jquery.followNav.js',
+		paths.assets + 'scripts/vendor/jquery.sticky.js',
+		paths.assets + 'scripts/vendor/jquery.twitterFetcher.js',
 	]
 };
 
@@ -40,7 +42,7 @@ module.exports = function(grunt) {
 
 			development : {
 				options: {
-					compress: true
+					//compress: true
 				},
 				files: scriptsList
 			},
@@ -57,7 +59,7 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'app/build/styles/app.css': paths.assets + 'styles/app.scss',
+					'app/build/styles/styles.css': paths.assets + 'styles/styles.scss',
 				}
 			},
 
@@ -66,7 +68,7 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'app/build/styles/app.css': paths.assets + 'styles/app.scss',
+					'app/build/styles/styles.css': paths.assets + 'styles/styles.scss',
 				}
 			}
 		},
@@ -106,7 +108,7 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: paths.assets + 'fonts',
-						src: ['**/*.{eot,svg,ttf,woff}'],
+						src: ['**/*.{eot,svg,ttf,woff,woff2,otf}'],
 						dest: paths.build + 'fonts/'
 					}
 				]
@@ -135,42 +137,6 @@ module.exports = function(grunt) {
 
 			build: {
 				src: [paths.build + '']
-			}
-		},
-
-		connect: {
-
-			server: {
-				options: {
-					base: paths.build + '',
-					hostname: '*',
-					keepalive: false,
-					livereload: false,
-					open: {
-						target: 'http://localhost:8000'
-					},
-					port: 8000,
-					middleware: function(connect, options, middlewares) {
-
-						middlewares.unshift(function (req, res, next) {
-
-							var fs = require('fs');
-							var path = require('path');
-							var support = ['POST', 'PUT', 'DELETE'];
-
-							if (support.indexOf(req.method.toUpperCase()) != -1) {
-								var filepath = path.join(options.base[0], req.url);
-								if (fs.existsSync(filepath) && fs.statSync(filepath).isFile()) {
-									return res.end(fs.readFileSync(filepath));
-								}
-							}
-
-							return next();
-						});
-
-						return middlewares;
-					}
-				}
 			}
 		},
 
@@ -283,7 +249,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('assemble');
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -302,7 +267,6 @@ module.exports = function(grunt) {
 		'copy',
 		'uglify:development',
 		'assemble:development',
-		'connect',
 		'watch'
 	]);
 
