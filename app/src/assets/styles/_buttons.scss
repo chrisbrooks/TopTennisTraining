@@ -8,6 +8,7 @@
 	margin-bottom: 10px;
     text-align: center; 
     letter-spacing:2px;
+    @include transition(all, .35s, ease);
 
     &.darkBlue{
     	background:$darkBlue;
@@ -22,7 +23,6 @@
 }
 
 .fill-effect{
-	@include transition(all, .35s, ease);
 	&:hover{
 		background:$blue;
 		color:$white;
