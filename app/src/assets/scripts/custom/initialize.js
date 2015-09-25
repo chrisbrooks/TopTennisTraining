@@ -3,41 +3,64 @@ $( document ).ready(function() {
 
     //$(".navigation").sticky({ topSpacing: 0 });
 
-	$('.menu').on({
+	$('.menu > li').on({
 		mouseenter: function (){
-			$(this).addClass('open-dropdown');
+			$(this).addClass('open');
+			$('.sub-nav').addClass('open');
 		},
 		mouseleave:function (){
-			$(this).removeClass('open-dropdown');
+			$(this).removeClass('open');
+			$('.sub-nav').removeClass('open');
 		}
 	});
 
-	$('.menu > li').on('mouseover', function(){
+	/*$('.menu > li').on('mouseover', function(){
 		var numItems = 100 / $(this).find('.dropdown > ul > li').length ;
 		
 		$(this).find('.dropdown > ul > li').css('width', numItems + '%');
-	});
+	});*/
 
-	$(window).scroll(function() {
-	    if ($(window).scrollTop() >= 1) {
-	        $('.navigation').addClass('background');
+	$(window).on( "scroll", function() {
+	    if ($(window).scrollTop() >= 100) {
+	        $('.header').addClass('slide-up');
 	    }else{
-	    	$('.navigation').removeClass('background');
+	    	$('.header').removeClass('slide-up');
 	    }
 	});
 
-	twitterFetcher.fetch({
-		"id": '639691526692601856',
-		"domId": 'twitter-feed',
-		"maxTweets": 20,
-		"enableLinks": true,
-		"showImages": true
-	});
-
 	var height = ($(window).height() / 10) * 10;
-//
-//		console.log(windowHeight);
-//
+
 	$('.banner').css('height', height);
 
+	$(window).on( "resize", function() {
+		var height = ($(window).height() / 10) * 10;
+		$('.banner').css('height', height);
+	});
+
+	$('.arrow-down').on('mouseenter', function() {
+		$(this).removeClass('as-circle-none').addClass('as-circle-full');
+	}).on('mouseleave', function() {
+		$(this).removeClass('as-circle-full').addClass('as-circle-none');
+	});
+
+	$('.scroll-button').on('click', function () {
+		$('body').animate({scrollTop: 0}, 800, 'swing');
+		return false;
+	});
+
+		var scroller = $('.scroll-button, .scroll-button svg');
+
+		function scrolling() {
+			if ($(this).scrollTop() > 100 && $(window).width() > 767) {
+				scroller.fadeIn();
+			} else {
+				scroller.fadeOut();
+			}
+		}
+
+		$(window).on('scroll', function () {
+			scrolling();
+		});
+
+		scrolling();
 });

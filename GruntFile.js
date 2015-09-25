@@ -14,10 +14,7 @@ var scriptsList = {
 	'app/build/scripts/plugins.min.js': [
 		paths.bower + 'jquery/dist/jquery.min.js',
 		paths.bower + 'jQuery.mmenu/dist/js/jquery.mmenu.min.js',
-		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js',
-		paths.assets + 'scripts/vendor/jquery.followNav.js',
-		paths.assets + 'scripts/vendor/jquery.sticky.js',
-		paths.assets + 'scripts/vendor/jquery.twitterFetcher.js',
+		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js'
 	]
 };
 

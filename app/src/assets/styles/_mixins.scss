@@ -57,6 +57,13 @@ $light-grey: #f2f2f2;
   transform-origin: $origin;
 }
 
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+  -moz-transform: translate3d($x, $y, $z);
+  -o-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+
 
 /*.test {
   @include skew(25,10);

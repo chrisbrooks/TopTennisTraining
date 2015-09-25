@@ -48,7 +48,7 @@
       var element = document.getElementById(domNode);
       var html = '<ul>';
       while(n < x) {
-        html += '<li>' + tweets[n] + '</li>';
+        html += '<li class="col-xs-4"><div class="feed">' + tweets[n] + '</div></li>';
         n++;
       }
       html += '</ul>';
