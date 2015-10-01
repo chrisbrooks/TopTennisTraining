@@ -144,7 +144,7 @@ header{
 				line-height: 10px;
 				a{
 					color:$white;
-					font-size: 10px;
+					@include font-size(1);
 					letter-spacing: 2px;
 					padding: 0px 10px;
 					text-transform: uppercase;
@@ -193,39 +193,12 @@ header{
 		    	height:44px;
 		    }
 		}
-		
-		/*.graphic-logo{
-			background:$blue;
-			width: 120px;
-			height: 71px;
-			float: left;
-			position: relative;
-    		&:before{
-				right: -17px;
-				border-left: 17px solid #3bc6f3;
-				border-bottom: 72px solid transparent;
-				content: "";
-				position: absolute;
-				top: 0px;
-				width: 0;
-				height: 0;
-    		}
-			&:after{
-				background: url("../images/logo-graphic-white.png");
-				content: '';
-				position: absolute;
-				height: 42px;
-				width: 69px;
-				background-size: cover;
-				left: 30px;
-				top: 12px;
-			}
-		}*/
+
 		.logo-container{
 			display: block;
 			float: left;
 			color: white;
-			font-size: 12px;
+			@include font-size(1.2);
 			padding: 12px 0px;
 			position: relative;
 			letter-spacing:1px;
@@ -294,18 +267,18 @@ header{
 					    }
 					}
 				}
-				a {
+				> a {
 					display: block;
 					padding: 27px 20px;
 					text-decoration: none;
 					white-space: nowrap;
 					color: #fff;
 					text-transform: uppercase;
-					font-size:12px;
 					position: relative;
 					z-index: 1;
 					position: relative;
 					letter-spacing:2px;
+					@include transition(color, .35s, ease);
 					&:after{
 						content: ' ';
 						display: block;
@@ -337,7 +310,7 @@ header{
 			background: none;
 			overflow: hidden;
 			display: block;
-			height: 44px;
+			height: 0px;
 			position: absolute;
 			top: 100%;
 			left: 0;
@@ -345,7 +318,7 @@ header{
 			float: left;
 			min-width: 160px;
 			list-style: none;
-			font-size: 14px;
+			@include font-size(1.4);
 			background-clip: padding-box;
 			> ul{
 				position: relative;
@@ -372,8 +345,13 @@ header{
 						background: none;
 						padding: 15px 8px;
 						letter-spacing: 2px;
-						font-size: 10px;
-						
+						color:$white;
+						text-transform: uppercase;
+						@include font-size(1);
+						@include transition(color, .35s, ease);
+						&:hover{
+							color:$darkBlue;
+						}
 					}
 					&:first-child{
 						> a{

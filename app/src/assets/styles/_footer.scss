@@ -5,7 +5,7 @@
 		p{
 			letter-spacing:2px;
 			text-transform:uppercase;
-			font-size:12px;
+			@include font-size(1.2);
 			color:$white;
 			text-align:center;
 			line-height:25px;
@@ -20,23 +20,30 @@
 					margin:0px 10px;
 					a.btn{
 						padding:5px 20px;
-						font-size:12px;
 						margin-bottom:0px;
 						&.facebook:hover, &.twitter:hover, &.youtube:hover{
-							border:2px solid #999;
-							color:#999;
+							color:#fff;
 						}
 						&.facebook{
 							border:2px solid #3a5795;
 							color: #3a5795;
+							&:hover{
+								background:#3a5795;
+							}
 						}
 						&.twitter{
 							border:2px solid #55acee;
 							color: #55acee;
+							&:hover{
+								background:#55acee;
+							}
 						}
 						&.youtube{
 							border:2px solid #cc181e;
 							color: #cc181e;
+							&:hover{
+								background:#cc181e;
+							}
 						}
 					}
 				}

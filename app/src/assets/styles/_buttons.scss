@@ -8,6 +8,8 @@
 	margin-bottom: 10px;
     text-align: center; 
     letter-spacing:2px;
+    border-radius:2px;
+    @include font-size(1.4);
     @include transition(all, .35s, ease);
 
     &.darkBlue{

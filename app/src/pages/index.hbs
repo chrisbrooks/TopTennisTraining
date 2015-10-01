@@ -5,19 +5,19 @@ class: home
 
 <div id="page">
 {{>header}}
-<div class="banner">
-	<div class="curtain"></div>
-	<div class="banner-text-container">
-		<div class="banner-text">
-			<h2>sign up now for totally</h2>
-			<h3>free access</h3>
-			<a class="btn white">Start Now</a>
+<div class="banner-container">
+	<div class="banner">
+		<!--<div class="curtain waiting"></div>-->
+		<div class="banner-text-container">
+			<div class="banner-text">
+				<h2>sign up now for totally</h2>
+				<h3>free access</h3>
+				<a class="btn white">Start Now</a>
+			</div>
 		</div>
+		<a class="arrow-down js-btn-down as-circle-none" href="#aboutme" style="opacity: 1;"><svg width="57" height="57" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="32"></circle><line x1="20" y1="30" x2="41" y2="50"></line><line x1="40" y1="50" x2="60" y2="30"></line></svg></a>
 	</div>
-	<a class="arrow-down js-btn-down as-circle-none" href="#aboutme" style="opacity: 1;"><svg width="57" height="57" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="32"></circle><line x1="20" y1="30" x2="41" y2="50"></line><line x1="40" y1="50" x2="60" y2="30"></line></svg></a>
 </div>
-
-
 
 <main class="main">
 <section class="section">
@@ -30,7 +30,7 @@ class: home
 					</div>
 				</div>
 				<div class="col-xs-6">
-					<div class="sign-up">
+					<div class="sign-up lazy" data-original="images/signup-background.jpg">
 						<div class="sign-up-content">
 							<p>top tennis training</p>
 							<p class="free">NO.1 tennis</p>
@@ -40,7 +40,7 @@ class: home
 					</div>
 				</div>
 				<div class="col-xs-6">
-					<div class="counter">
+					<div class="counter lazy" data-original="images/counter-background.jpg">
 						<div class="count">
 							<h2>570,457</h2>
 							<p>Members &amp; Counting</p>
@@ -54,11 +54,11 @@ class: home
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-8 padding-right-0">
-					<div class="vimeo" data-href="136722796" data-background="david.jpg"></div>
+					<div class="vimeo lazy" data-href="136722796" data-background="david.jpg"></div>
 				</div>
 				<div class="col-xs-4 padding-left-0">
-					<div class="vimeo small" data-href="136722796" data-background="rafa.jpg"></div>
-					<div class="vimeo small" data-href="136722796" data-background="federer.jpg"></div>
+					<div class="vimeo lazy small" data-href="136722796" data-background="rafa.jpg"></div>
+					<div class="vimeo lazy small" data-href="136722796" data-background="federer.jpg"></div>
 				</div>
 			</div>
 		</div>
@@ -74,10 +74,10 @@ class: home
 					</div>
 				</div>
 				<div class="col-xs-12">
-					<div class="players">
+					<div class="players lazy" data-original="images/coaches-background.jpg">
 						<div class="row">
 							<div class="col-xs-12 player-container">
-								<div class="player"></div>
+								<div class="player lazy" data-original="images/players.png"></div>
 								<div class="row">
 									<div class="player-one-info col-xs-4 col-xs-offset-2">
 										<h3 class="name">Simon Konov</h3>

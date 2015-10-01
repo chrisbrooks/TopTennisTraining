@@ -23,7 +23,7 @@ var vimeo = {
 				$('.loading').hide();
 
 				$(element).html(data.html).append(
-					'<div class="video-content"><!--<button class="play-button small">Play</button>-->
+					'<div class="video-content">
 					<button class="play-button" id="play-button">Play</button>
 					<div class="overlay" style="background: url(images/'+ videoData.background+')"></div>
 					<div class="logo"></div>

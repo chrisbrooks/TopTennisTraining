@@ -1,24 +1,34 @@
+$(function() {
+	$(".lazy").lazyload({
+	    effect : "fadeIn"
+	});
+});
+
 $( document ).ready(function() {
-   //$('.menu').spasticNav();
 
-    //$(".navigation").sticky({ topSpacing: 0 });
+    setTimeout(function() {
+       $('.curtain').removeClass('waiting');
+    }, 2000);
 
+    
 	$('.menu > li').on({
 		mouseenter: function (){
-			$(this).addClass('open');
-			$('.sub-nav').addClass('open');
+			if($(this).find('.dropdown').length){
+				$(this).addClass('open');
+				$('.sub-nav').addClass('open');
+			}
 		},
 		mouseleave:function (){
 			$(this).removeClass('open');
 			$('.sub-nav').removeClass('open');
 		}
-	});
+	});	
 
-	/*$('.menu > li').on('mouseover', function(){
-		var numItems = 100 / $(this).find('.dropdown > ul > li').length ;
-		
-		$(this).find('.dropdown > ul > li').css('width', numItems + '%');
-	});*/
+
+	$('.section-text').addClass('opacity').viewportChecker({
+		classToAdd: 'visible animated fadeInUp',
+		offset: 100
+	});
 
 	$(window).on( "scroll", function() {
 	    if ($(window).scrollTop() >= 100) {
@@ -28,13 +38,17 @@ $( document ).ready(function() {
 	    }
 	});
 
-	var height = ($(window).height() / 10) * 10;
+	var pageHeight = $(window).height(),
+		headerHeight = $('.header').outerHeight(),
+		bannerHeight = pageHeight - bannerHeight;
 
-	$('.banner').css('height', height);
+	$('.banner').css('height', bannerHeight);
 
 	$(window).on( "resize", function() {
-		var height = ($(window).height() / 10) * 10;
-		$('.banner').css('height', height);
+		var pageHeight = $(window).height(),
+		headerHeight = $('.header').outerHeight(),
+		bannerHeight = pageHeight - bannerHeight;
+		$('.banner').css('height', bannerHeight);
 	});
 
 	$('.arrow-down').on('mouseenter', function() {
@@ -48,19 +62,19 @@ $( document ).ready(function() {
 		return false;
 	});
 
-		var scroller = $('.scroll-button, .scroll-button svg');
+	var scroller = $('.scroll-button, .scroll-button svg');
 
-		function scrolling() {
-			if ($(this).scrollTop() > 100 && $(window).width() > 767) {
-				scroller.fadeIn();
-			} else {
-				scroller.fadeOut();
-			}
+	function scrolling() {
+		if ($(this).scrollTop() > 100 && $(window).width() > 767) {
+			scroller.fadeIn();
+		} else {
+			scroller.fadeOut();
 		}
+	}
 
-		$(window).on('scroll', function () {
-			scrolling();
-		});
-
+	$(window).on('scroll', function () {
 		scrolling();
+	});
+
+	scrolling();
 });
