@@ -182,7 +182,7 @@ header{
 		@include transition(background, .35s, ease);
 		background: $darkBlue;
 
-		.sub-nav{
+		/*.sub-nav{
 			position: absolute;
 		    top: 100%;
 		    width: 100%;
@@ -192,7 +192,7 @@ header{
 		    &.open{
 		    	height:44px;
 		    }
-		}
+		}*/
 
 		.logo-container{
 			display: block;
@@ -257,7 +257,8 @@ header{
 				}
 				&.open{
 					.dropdown {
-					    height:44px;
+					    height:auto;
+					    background-color: #0a7fa4;
 					    > ul{
 					    	opacity:1;
 							-webkit-transform:translateY(0px);
@@ -320,13 +321,15 @@ header{
 			list-style: none;
 			@include font-size(1.4);
 			background-clip: padding-box;
+			transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 			> ul{
 				position: relative;
+				padding:10px 0px;
 				margin: 0;
 				cursor: default;
 				background: none;
-				width: 9999px;
-				height: 44px;
+				/*width: 9999px;
+				height: 44px;*/
 				overflow: hidden;
 				-webkit-transform: translateY(-10px);
 				-moz-transform: translateY(-10px);
@@ -336,14 +339,14 @@ header{
 				filter: alpha(opacity=0);
 				transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 				> li{
-					display: inline-block;
+					/*display: inline-block;*/
 					padding-left: 5px;
 					padding-right: 5px;
 					position: relative;
 					> a{
 						display: block;
 						background: none;
-						padding: 15px 8px;
+						padding: 10px 15px;
 						letter-spacing: 2px;
 						color:$white;
 						text-transform: uppercase;
@@ -353,11 +356,11 @@ header{
 							color:$darkBlue;
 						}
 					}
-					&:first-child{
+					/*&:first-child{
 						> a{
 							padding-left:15px;
 						}
-					}
+					}*/
 				}
 			}
 		}	

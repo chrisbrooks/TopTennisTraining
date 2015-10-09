@@ -15,7 +15,8 @@ var scriptsList = {
 		paths.bower + 'jquery_lazyload/jquery.lazyload.js',
 		paths.assets + 'scripts/vendor/viewportchecker.js',
 		paths.bower + 'jQuery.mmenu/dist/js/jquery.mmenu.min.js',
-		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js'
+		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js',
+		paths.assets + 'scripts/vendor/jquery.bxslider.js'
 	]
 };
 

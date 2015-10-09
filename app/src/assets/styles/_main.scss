@@ -22,7 +22,7 @@
 	height:100%;
 	background:url('../images/banner3.jpg') no-repeat $black;
 	background-size: cover;
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	.banner{
 		width:100%;
 		height:100%;
@@ -386,6 +386,7 @@
 			font-weight: 100;
 			letter-spacing: 6px;
 			@include font-size(3.0);
+			margin-bottom:10px;
 		}
 		p{
 			@include font-size(1.6);
@@ -399,7 +400,7 @@
 		border: 1px solid #ddd;
 		text-align: center;
 		padding: 50px 0px;
-		/*background: url("../images/counter-background.jpg");*/
+		background: url("../images/counter-background.jpg");
 		background-size: cover;
 		height: 330px;
 		border-bottom: none;
@@ -432,7 +433,7 @@
 	.sign-up{
 		border:1px solid #ddd;
 		padding: 20px 20px;
-		/*background: url("../images/signup-background.jpg");*/
+		background: url("../images/signup-background.jpg");
 		background-size: cover;
 		height:330px;
 		display: table;
@@ -489,136 +490,6 @@
 			}
 		}
 		
-	}
-
-	.social{
-		background:#084a78;
-
-	}
-	#twitter-feed{
-		height: 607px;
-	    overflow: auto;
-	    border-radius: 3px;
-	    color:$white;
-	    &::-webkit-scrollbar{
-	    	display:none;
-	    }
-	    a{
-	    	color:$darkBlue;
-	    	@include transition(color, .35s, ease);
-	    	&:hover{
-	    		color:$blue;
-	    	}
-	    }
-	    ul{
-	    	li{
-				position: relative;
-				margin-bottom: 15px;
-				&:nth-child(even){
-					.feed{
-						background:$blue;
-					}
-					
-				}
-				&:nth-child(odd){
-					.feed{
-						background:darken($blue,20);
-					}
-				}
-				.feed{
-					padding:10px;
-					height:180px;
-				}
-	    		.user{
-			    	a{
-			    		display: inline-block;
-			    		position: relative;
-			    		&:after{
-							content: '';
-							opacity: 1;
-							position: absolute;
-							background: url(../images/logo-graphic-white.png);
-							width: 50px;
-							height: 32px;
-							left: -4px;
-							top: 0px;
-							background-size: cover;
-			    		}
-				    	img{
-				    		float:left;
-				    		opacity: 0;				    		
-				    	}
-				    	> span{
-				    		height:18px;
-				    		display: block;
-				    		overflow: hidden;
-				    		display: block;
-		    				padding-left: 10px;
-							@include font-size(1.3);
-							margin-bottom: 2px;
-							span{
-								font-weight: 400;
-								&:nth-child(2){
-									display:none;
-								}
-							}
-				    	}
-			    	}
-			    }
-			    .tweet{
-					margin: 0px;
-					padding-left: 58px;
-					@include font-size(1.3);
-					overflow: hidden;
-					img{
-						display: none;
-					}
-			    }
-			    .timePosted{
-					position: absolute;
-					right: 20px;
-					top: 20px;
-					margin: 0px;
-					@include font-size(1.2);
-			    }
-			    .interact{
-			    	margin: 10px 0px 0px;
-					font-family: 'FontAwesome';
-					padding-left: 58px;
-					a{
-						margin-right:35px;
-						&:before{
-							@include font-size(1.6);
-			    			color:#ccd6dd;
-			    			@include transition(color, .35s, ease);
-						}
-						&:hover{
-							&:before{
-								color:$blue;
-							}
-						}
-					}
-			    	.twitter_reply_icon{
-			    		&:before{
-			    			content:'\f112';
-			    		}
-			    	}
-			    	.twitter_retweet_icon{
-			    		&:before{
-			    			content:'\f079';
-			    		}
-			    	}
-			    	.twitter_fav_icon{
-			    		&:before{
-			    			content:'\f005';
-			    		}
-			    	}
-			    }
-			    .media{
-			    	display: none;
-			    }
-	    	}
-	    }   
 	}
 
 	.players{
@@ -733,4 +604,16 @@
 	&:hover{
 		opacity:1;
 	}
+}
+
+.video-page{
+	h1{
+		@include font-size(3.0);
+		text-align:center;
+		margin-bottom:10px;
+		letter-spacing:5px;
+		font-weight:100;
+		text-transform:uppercase;
+	}
+	
 }
