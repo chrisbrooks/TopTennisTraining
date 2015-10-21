@@ -1,0 +1,205 @@
+.vimeo{
+	position:relative;
+	background:$black;
+	height:400px;
+	overflow:hidden;
+	border-radius: 3px 0px 0px 3px;
+	iframe{
+		width:100%;
+		height:100%;
+	}
+	.video-content{
+		cursor:pointer;
+		&:hover{
+			.play-button{
+				border: 3px solid $blue;
+				&:after{
+					border-left: 30px solid $blue;
+				}
+			}
+		}
+		.overlay{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			background-size: cover !important;
+			&:after{
+				content:'';
+				width: 100%;
+				height: 100%;
+				display: block;
+				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 41%, rgba(0,0,0,0.9) 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(41%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.9)));
+				background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 41%,rgba(0,0,0,0.9) 100%);
+				background: -ms-linear-gradient(top,  rgba(0,0,0,0) 41%,rgba(0,0,0,0.9) 100%);
+				background: linear-gradient(to bottom,  rgba(0,0,0,0) 41%,rgba(0,0,0,0.9) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+			}
+		}
+		.play-button{
+			position: absolute;
+			z-index: 1;
+			width: 90px;
+			height: 90px;
+			background: rgba(0,0,0,0.1);
+			border: 3px solid white;
+			border-radius: 50%;
+			text-indent: -9999px;
+			left: 50%;
+			top: 50%;
+			margin-left: -45px;
+			margin-top: -45px;
+			@include transition(all, .35s, ease);
+			&:after{
+				content: '';
+				width: 0;
+				height: 0;
+				border-top: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-left: 30px solid $white;
+				position: absolute;
+				left: 50%;
+				margin-left: -10px;
+				top: 50%;
+				margin-top: -20px;
+				@include transition(all, .35s, ease);
+			}
+			&:hover{
+				border: 3px solid $blue;
+				&:after{
+					border-left: 30px solid $blue;
+				}
+			}
+			&:active, &:focus{
+			border:none;
+			outline:none;
+			}
+			&.small{
+				position: absolute;
+				z-index: 1;
+				width: 34px;
+				height: 34px;
+				background: rgba(0,0,0,0.1);
+				border: 2px solid $blue;
+				border-radius: 50%;
+				text-indent: -9999px;
+				left: 15px;
+				bottom: 15px;
+				top: auto;
+				margin: 0px;
+				&:after{
+					content: '';
+					width: 0;
+					height: 0;
+					border-top: 8px solid transparent;
+					border-bottom: 8px solid transparent;
+					border-left: 12px solid $blue;
+					position: absolute;
+					left: 50%;
+					margin-left: -4px;
+					top: 50%;
+					margin-top: -8px;
+				}
+			}
+		}
+		.video-title{
+			position: absolute;
+			color: white;
+			bottom: 15px;
+			z-index: 1;
+			left: 20px;
+			@include font-size(1.7);
+			letter-spacing: 3px;
+		}
+	}
+
+	.error-text{
+		position: absolute;
+		text-align: center;
+		display: table;
+		width: 100%;
+		height: 100%;
+		@include font-size(3.0);
+		color: #666;
+		p{
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	&.thumbnail {
+
+		.video-content {
+			height:100%;
+			background-size:cover !important;
+			background-position: center !important;
+		}
+		
+	}
+
+	&.small{
+		height:200px;
+		border-radius: 0px 3px 3px 0px;
+		.video-content{
+			&:hover{
+				.play-button{
+					border: 2px solid $blue;
+					&:after{
+						border-left: 15px solid $blue;
+					}
+				}
+			}
+			.play-button{
+				width:50px;
+				height:50px;
+				margin-left:-25px;
+				margin-top:-25px;
+				border: 2px solid $white;
+				&:after{
+					border-top: 10px solid transparent;
+					border-bottom: 10px solid transparent;
+					border-left: 15px solid $white;
+					margin-left: -6px;
+					margin-top: -10px;
+				}
+				&:hover{
+					border: 2px solid $blue;
+					&:after{
+						border-left: 15px solid $blue;
+					}
+				}
+				&.small{
+					width:24px;
+					height:24px;
+					margin:0px;
+					left:10px;
+					bottom:10px;
+					border:2px solid $blue;
+					&:after{
+						border-top: 4px solid transparent;
+						border-bottom: 4px solid transparent;
+						border-left: 6px solid $blue;
+						margin-left: -2px;
+						margin-top: -4px;
+					}
+				}
+			}
+			.video-title{
+			    bottom: 12px;
+				left: 15px;
+				@include font-size(1.4);
+				letter-spacing: 2px;
+			}
+			.logo{
+				top: 7px;
+				right: 7px;
+				width: 50px;
+				height: 38px;
+			}
+		}
+		.error-text{
+			@include font-size(2.0);
+		}
+	}
+}
