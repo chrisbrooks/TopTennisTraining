@@ -33,7 +33,7 @@ var vimeo = {
 			console.log(data);
 
 			$(element).html(data.html).append(
-				'<div class="video-content">
+				'<div class="video-content" style="background: url('+ data.thumbnail_url +')">
 				<button class="play-button" id="play-button">Play</button>
 				<div class="overlay" style="background: url(images/'+ videoData.background+')"></div>
 				<div class="logo"></div>
@@ -74,7 +74,8 @@ var vimeoThumbnail = {
 
 		var videoData = {
 			'title': $(element).html(),
-			'url': $(element).attr('data-href')
+			'url': $(element).attr('data-href'),
+			'thumbnail': $(element).attr('data-thumb')
 		};
 
 		$.ajax({
@@ -95,13 +96,25 @@ var vimeoThumbnail = {
 		});
 
 		function thumbnail(data){
-			$(element).append(
-				'<div class="video-content" style="background: url('+ data.thumbnail_url +')">
-				<button class="play-button" id="play-button">Play</button>
-				<div class="overlay" ></div>
-				<div class="logo"></div>
-				<div class="video-title">' + data.title +'</div></div>'
-			);
+
+			if($(element).attr('data-thumb')){
+				$(element).append(
+					'<div class="video-content" style="background: url('+ data.thumbnail_url +')">
+					<button class="play-button" id="play-button">Play</button>
+					<div class="overlay" style="background: url(images/'+ videoData.thumbnail +')"></div>
+					<div class="logo"></div>
+					<div class="video-title">' + data.title +'</div></div>'
+				);
+			}else {
+				$(element).append(
+					'<div class="video-content" style="background: url('+ data.thumbnail_url +')">
+					<button class="play-button" id="play-button">Play</button>
+					<div class="overlay"></div>
+					<div class="logo"></div>
+					<div class="video-title">' + data.title +'</div></div>'
+				);
+			}
+			
 		}
 	}
 }

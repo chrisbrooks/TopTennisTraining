@@ -10,6 +10,12 @@
 	}
 	.video-content{
 		cursor:pointer;
+		height:100%;
+		background-size:cover !important;
+		background-position: center !important;
+		position: absolute;
+    	top: 0px;
+    	width: 100%;
 		&:hover{
 			.play-button{
 				border: 3px solid $blue;
@@ -126,16 +132,6 @@
 			display: table-cell;
 			vertical-align: middle;
 		}
-	}
-
-	&.thumbnail {
-
-		.video-content {
-			height:100%;
-			background-size:cover !important;
-			background-position: center !important;
-		}
-		
 	}
 
 	&.small{
