@@ -83,4 +83,26 @@ $( document ).ready(function() {
 	});
 
 	scrolling();
+
+	$('.vimeo.thumbnail').each(function(index) {
+		$(this).on('click', function() {
+			var video = $(this);
+			$("html, body").animate({ scrollTop: $('.vimeo.banner').offset().top -100 }, 300, function(){	
+				videoSwitch(video);
+			});
+		});
+	});
+
+	function videoSwitch(video){
+		var iframe = $('.vimeo.banner').find('iframe');
+
+		$('.vimeo').find('iframe').attr('src', 'https://player.vimeo.com/video/' + video.attr('data-href') + '');
+		iframe.attr('src', iframe.attr('src')+'?autoplay=1');
+
+		setTimeout(function(){
+			$('.vimeo.banner').find('.video-content').hide();
+		}, 300);
+		
+	}
+
 });
