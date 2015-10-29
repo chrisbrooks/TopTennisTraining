@@ -1,138 +1,16 @@
-/*header{
-	.sub-navigation{
-		background:$darkBlue;
-		height:40px;
-		.sign-in{
-			float: right;
-			color: white;
-			padding: 9px 0px;
-			&:hover{
-				color:$blue;
-			}
-		}
-	}
-	.navigation{
-		background:$blue;
-		width: 100%;
-		.logo{
-			display:block;
-			background: url("../images/logo.png");
-			height: 54px;
-			width: 101px;
-			background-size: cover;
-			margin: 10px 0px;
-			float: left;
-		}
-		.menu:before, &:after{
-			content: " ";
-			display: table;
-		}
-		.menu:after{
-			clear: both;
-		}
-		.menu {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			float:right;
-			margin-right:-20px;
-			z-index: 1;
-			position: relative;
-			> li{
-				float: left;
-				z-index: 1;
-				&#blob {
-					position: absolute;
-					z-index: 0;
-					bottom: 0;
-					width: 0;
-					padding:0px;
-					span{
-						border-left: 10px solid transparent;
-						border-right: 10px solid transparent;
-						border-bottom: 10px solid white;
-						display: table;
-						margin: 0 auto;	
-					}
-				}
-				a {
-					display: block;
-					padding: 27px 20px;
-					text-decoration: none;
-					white-space: nowrap;
-					color: #fff;
-					text-transform: uppercase;
-					font-size:14px;
-					position: relative;
-					z-index: 2;
-					@include transition(all, .35s, ease);
-				}
-			}
-		}
-		.menu li{
-			&:hover{
-				> ul{
-					opacity: 1;
-					visibility: visible;
-					position: absolute;
-					display: block;
-				}
-			}
-		}
-		.menu > li > ul{
-			position: absolute;
-			border-bottom: 1px solid #eee;
-			background: $white;
-			opacity: 0;
-			visibility: hidden;
-			@include transition(all, .35s, ease);
-			li{
-				border-top:0;
-				border-left: 1px solid #eee;
-				border-right: 1px solid #eee;
-				float:none;
-				position: relative;
-				a{
-					padding: 10px 20px;
-					color: $darkBlue;
-					text-transform: none;
-					&:hover{
-						color:$blue;
-					}
-				}
-			}
-		}
-		.menu > li > ul > li > ul{
-			position: absolute;
-			left: 100%;
-			top: 0;
-			background: $white;			
-			display: none;
-			position: relative;	
-			@include transition(all, .0s, ease);
-			li{
-				float: none;
-				a{
-					color:$darkBlue;	
-				}
-			}
-		}
-	}
-}*/
-
 header{
 	position: fixed;
     z-index: 2;
     width: 100%;
+    @include prefixed(transition, transform .35s ease);
 
 	&.slide-up{
-		.sub-navigation{
-			margin-top:-35px;
-		}
+		@include prefixed(transform, translateY(-35px));
+		transition:  0.6s ease;
 	}
 
 	.sub-navigation{
-		@include transition(margin, .35s, ease);
+		@include hardwareAccel();
 		background:$blue;
 		height:40px;
 
@@ -148,7 +26,8 @@ header{
 					letter-spacing: 2px;
 					padding: 0px 10px;
 					text-transform: uppercase;
-					@include transition(color, .35s, ease);
+					@include prefixed(transition, color .35s ease);
+					@include hardwareAccel();
 					&:hover{
 						color:$darkBlue;
 					}
@@ -179,20 +58,9 @@ header{
 		width: 100%;
 		z-index: 3;
 		height:71px;
-		@include transition(background, .35s, ease);
+		@include prefixed(transition, background .35s ease);
+		@include hardwareAccel();
 		background: $darkBlue;
-
-		/*.sub-nav{
-			position: absolute;
-		    top: 100%;
-		    width: 100%;
-		    height: 0px;
-		    background: darken($blue, 25);
-		    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-		    &.open{
-		    	height:44px;
-		    }
-		}*/
 
 		.logo-container{
 			display: block;
@@ -253,7 +121,8 @@ header{
 					right: 0;
 					height: 0%;
 					background: darken($blue, 25);
-					transition: height 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+					@include prefixed(transition, height .2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s);
+					@include hardwareAccel();
 				}
 				&.open{
 					.dropdown {
@@ -280,6 +149,8 @@ header{
 					position: relative;
 					letter-spacing:2px;
 					@include transition(color, .35s, ease);
+					@include hardwareAccel();
+
 					&:after{
 						content: ' ';
 						display: block;
@@ -290,7 +161,8 @@ header{
 						right: 0;
 						height: 0%;
 						background: darken($blue, 25);
-						transition: height 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+						@include prefixed(transition, height 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s);
+						@include hardwareAccel();
 					}
 					&:hover{
 						&:after{
@@ -321,15 +193,14 @@ header{
 			list-style: none;
 			@include font-size(1.4);
 			background-clip: padding-box;
-			transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+			@include prefixed(transition, all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s);
+			@include hardwareAccel();
 			> ul{
 				position: relative;
 				padding:10px 0px;
 				margin: 0;
 				cursor: default;
 				background: none;
-				/*width: 9999px;
-				height: 44px;*/
 				overflow: hidden;
 				-webkit-transform: translateY(-10px);
 				-moz-transform: translateY(-10px);
@@ -337,9 +208,9 @@ header{
 				transform: translateY(-10px);
 				opacity: 0;
 				filter: alpha(opacity=0);
-				transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+				@include prefixed(transition, all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s);
+				@include hardwareAccel();
 				> li{
-					/*display: inline-block;*/
 					padding-left: 5px;
 					padding-right: 5px;
 					position: relative;
@@ -351,16 +222,12 @@ header{
 						color:$white;
 						text-transform: uppercase;
 						@include font-size(1);
-						@include transition(color, .35s, ease);
+						@include prefixed(transition, color .35s ease);
+						@include hardwareAccel();
 						&:hover{
 							color:$darkBlue;
 						}
 					}
-					/*&:first-child{
-						> a{
-							padding-left:15px;
-						}
-					}*/
 				}
 			}
 		}	

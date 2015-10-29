@@ -1,211 +1,41 @@
-.section{
-	padding:80px 0px;
-	position: relative;
-	&.grey{
-		background:#eee;
-	}
-	&.half-background{
-		&:after{
-			content:'';
-			position: absolute;
-			width:100%;
-			height: 260px;
-			bottom:0px;
-			background:#f2f2f2;
-			z-index:-1;
-		}
-	}
-}
+//Home Page
 
-.banner-container{
-	padding-top:111px;
-	height:100%;
-	background:url('../images/banner3.jpg') no-repeat $black;
-	background-size: cover;
-	/*background-attachment: fixed;*/
-	.banner{
-		width:100%;
-		height:100%;
-		position: relative;
-		background-position: bottom center;
-		.curtain{
-		    display: block;
-		    content: '';
-		    background: #fff;
-		    position: absolute;
-		    bottom: 0px;
-		    height: 0px;
-		    left: 0;
-		    width: 100%;
-		    z-index: 24000;
-		    @include hacks();
-		    transition: height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-		    &.waiting{
-				height:100%;
-			}
-		}
-		h1{
-			text-transform: uppercase;
-			font-weight: 100;
-			color: white;
-			text-align: center;
-			@include font-size(2.0);
-			letter-spacing: 8px;
-			padding-top: 20px;
-		}
-		.banner-text-container{
-			display: table;
-			margin: 0 auto;
-			vertical-align: middle;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			height: 100%;
-			width: 100%;
-			.banner-text{
-				display: table-cell;
-				vertical-align: middle;
-				text-align: center;
-			}
-			h2{
-				color: white;
-				text-transform: uppercase;
-				font-weight: 100;
-				letter-spacing: 14px;
-				@include font-size(2.3);
-				text-indent: 10px;
-				
-				@include animation('bannerH2 2s ease-in forwards');
-			}
-			h3{
-				@include font-size(9.0);
-				text-transform: uppercase;
-				color: white;
-				font-weight: 400;
-				line-height: 90px;
-				letter-spacing: 8px;
-				
-				@include animation('bannerH3 2s ease-in forwards');
-			}
-			.btn.white{
-				$outerBorderWidth: 2px;
-				$innerBorderWidth: 4px;
-				@include hacks();
-				position: relative;
-				background:$darkBlue;
-				border:none;
-				padding: 15px 25px;
-				font-weight: 100;
-				letter-spacing: 5px;
-				margin: 25px 0px 0px;
-				@include font-size(1.7);
+.home {
 
-				&:before {
-					border-radius:2px;
-					content: '';
-					position: absolute;
-					border: $darkBlue solid $outerBorderWidth;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					@include prefixed(transition-duration, .3s);
-					@include prefixed(transition-property, "top, right, bottom, left");
-				}
-
-				&:hover:before,
-				&:focus:before,
-				&:active:before {
-					top: -($outerBorderWidth + $innerBorderWidth);
-					right: -($outerBorderWidth + $innerBorderWidth);
-					bottom: -($outerBorderWidth + $innerBorderWidth);
-					left: -($outerBorderWidth + $innerBorderWidth);
-				}
-			}
-		}
-		@keyframes bannerH2{
-			0% {
-				opacity: 0;
-				margin-left:-200px;
-			}
-			100% {
-				opacity: 1;
-				margin-left: 0px;
-			}
-		}
-		@keyframes bannerH3{
-			0% {
-				opacity: 0;
-				margin-left: 200px;
-			}
-			100% {
-				opacity: 1;
-				margin-left: 0;
-			}
-		}
-		@keyframes opacity: {
-			0% {
-				opacity: 0;
-			}
-			100% {
-				opacity: 1;
-			}
-		}
-	}	
-}
-
-
-.main{
-	.videos{
+	.videos {
 		background: #f2f2f2;
-    	padding: 80px 0px;
-    	.vimeo{
-    		border-right: 2px solid #eee;
-    		&.small{
-    			border-right:none;
-    			border-bottom: 1px solid #eee;
-    			&:last-child{
-    				border-bottom:none;
-    				border-top: 1px solid #eee;
-    				border-radius: 0px 0px 3px 0px;
-    			}
+    	padding: 40px 0px;
+
+    	@media (min-width: $screen-sm-min) {
+    		padding: 80px 0px;
+
+    		.vimeo.banner {
+    			margin-bottom: 0px;
+    		}
+
+    		li {
+    			margin-bottom: 0px;
     		}
     	}
 	}
 
-	.section-text{
-		margin-bottom: 50px;
-		h2{
-			text-align: center;
-			text-transform: uppercase;
-			font-weight: 100;
-			letter-spacing: 6px;
-			@include font-size(3.0);
-			margin-bottom:10px;
-		}
-		p{
-			@include font-size(1.6);
-			text-align: center;
-			letter-spacing: 2px;
-			line-height: 29px;
-		}
-	}
-
-	.counter{
+	.counter {
 		border: 1px solid #ddd;
 		text-align: center;
-		padding: 50px 0px;
+		padding: 30px 0px;
 		background: url("../images/counter-background.jpg");
 		background-size: cover;
-		height: 330px;
+		height: 250px;
 		border-bottom: none;
 		border-radius: 3px;
-		.count{
+		
+		.count {
 			width: 231px;
 			margin: 0 auto;
 			border: 2px solid $blue;
 			padding: 10px 10px 12px;
-			h2{
+			
+			h2 {
 				margin: 0px;
 				@include font-size(5.8);
 				font-weight: 400;
@@ -213,7 +43,8 @@
 				margin-bottom: 8px;
 				color:$blue;
 			}
-			p{
+
+			p {
 				margin: 0px;
 				@include font-size(1.4);
 				text-transform: uppercase;
@@ -223,54 +54,72 @@
 				letter-spacing: 3px;
 			}
 		}
+
+		@media (min-width: $screen-sm-min)  {
+			height:400px;
+			background-position: bottom center;
+			padding:50px 0px;
+
+		}
+
+		@media (min-width: $screen-lg-min)  {
+			height:330px;
+		}
 	}
 
-	.sign-up{
+	.sign-up {
 		border:1px solid #ddd;
 		padding: 20px 20px;
 		background: url("../images/signup-background.jpg");
 		background-size: cover;
-		height:330px;
+		height:250px;
 		display: table;
 		width:100%;
 		border-radius: 3px;
-		.sign-up-content{
+		margin-bottom: 40px;
+
+		.sign-up-content {
 			display: table-cell;
 			vertical-align: middle;
-			p{
+			
+			p {
 				text-align: center;
 				color: $grey-dark;
 				margin: 0px;
 				text-transform: uppercase;
 				font-weight: 400;
 				line-height: 14px;
-				&:first-child{
+				
+				&:first-child {
 					margin-top: 3px;
-					@include font-size(1.4);
-					letter-spacing: 8px;
+					@include font-size(1.5);
+					letter-spacing: 5px;
 					margin-left: 8px;
 				}
-				&:nth-child(3){
-					letter-spacing: 5px;
+
+				&:nth-child(3) {
+					letter-spacing: 4px;
 					margin-left: 6px;
 				}
-				&.free{
-					@include font-size(5.8);
-					display: block;
+
+				&.free {
+					@include font-size(4.8);
 					line-height: 50px;
-					margin: 10px 0px 12px;
+					margin: 5px 0px 6px;
+					display: block;
 					font-weight: 400;
 					color: $blue;
+					
 					span{
 						@include font-size(5.2);
 						font-weight:300;
 					}
 				}
 			}
-			a{
+
+			a {
 				color: $white;
-				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3bc6f3+0,37b4dd+100 */
-				background: $darkBlue; /* Old browsers */
+				background: $darkBlue;
 				display: block;
 				text-align: center;
 				text-decoration: none;
@@ -279,32 +128,119 @@
 				@include font-size(2.3);
 				text-transform: uppercase;
 				font-weight: 500;
-				width: 260px;
+				width: 100%;
 				margin: 12px auto 0px;
 				letter-spacing: 4px;
 			}
 		}
-		
+
+		@media (min-width: $screen-sm-min)  {
+			height:400px;
+			background-position: top center;
+			margin-bottom: 50px;
+
+			.sign-up-content {
+				p {
+					&:first-child {
+						
+						@include font-size(1.4);
+						letter-spacing: 8px;
+					}
+
+					&.free {
+						@include font-size(5.8);
+						line-height: 50px;
+						margin: 10px 0px 12px;
+					}
+
+					&:nth-child(3) {
+						letter-spacing: 5px;
+					}
+				}
+
+				a {
+					width: 260px;
+				}
+			}
+		}
+
+		@media (min-width: $screen-lg-min)  {
+			height:330px;
+			margin-bottom: 0px;
+		}
 	}
 
-	.players{
+	.gallery-banner {
+
+		@media (min-width: $screen-md-min)  {
+
+			.gallery-banner-container {
+				padding-right: 0px;
+
+				.banner {
+
+					&.side {
+						border-right:2px solid $white;
+					}
+				}
+			}
+
+			.thumbnails {
+
+				li {
+
+					padding-left: 0px;
+
+					.thumbnail.side {
+						margin-bottom: 0px;
+						border-radius: 0px 3px 3px 0px;
+
+						.video-content {
+							border-radius: 0px 3px 3px 0px;
+						}
+					}
+
+					&:first-child {
+
+						.thumbnail.side {
+							border-bottom: 1px solid $white;
+						}	
+					}
+
+					&:last-child {
+
+						.thumbnail.side {
+							border-top: 1px solid $white;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.players {
 		position:relative;
 		border: 1px solid #ddd;
 		padding: 50px 20px;
 		background-size: cover;
 		border-radius: 3px;
-		/*background: url(../images/coaches-background.jpg) #fff;*/
 		background-size:cover;
+		
 		.player-container{
-			.player{
-				/*background: url("../images/players.png");*/
-				height: 423px;
+			
+			.player {
+				height:243px;
+				width:225px;
 				background-size: cover;
-				width: 420px;
 				margin: 0px auto;	
 			}
+
+			.player-one-info {
+				margin-bottom: 20px;
+			}
 		}
-		.name{
+
+		.name {
 			padding: 7px;
 			text-align: center;
 			background: $darkBlue;
@@ -318,103 +254,43 @@
 			border-radius: 2px;
 		}
 
-		.player-one{
-			.player-container{
-				.player{
-					background-position: 0px 0px;
+		@media (min-width: $screen-sm-min)  {
+
+			.player-container {
+
+				.player {
+					height: 423px;
+					width: 420px;
+				}
+
+				.player-one-info {
+					margin-bottom: 0px;
 				}
 			}
 		}
-		
-		.player-two{
-			.player-container{
-				.player{
-					background-position: -166px 0px;
-				}
+	}
+}
+
+.gallery-page {
+
+	.gallery-container {
+
+		section {
+			padding:40px 0px 10px;
+
+			@media (min-width: $screen-sm-min)  {
+				padding:60px 0px 30px;
 			}
 		}
-	}
-}
 
-
-.arrow-down {
-	display: block;
-	width: 60px;
-	height: 60px;
-	position:absolute;
-	left:50%;
-	margin-left:-30px;
-	bottom:10px;
-	svg line {
-		stroke: #fff;
-		stroke-width: 2px;
-	}
-	svg circle {
-		stroke: #fff;
-		stroke-width: 2px;
-		stroke-dasharray: 500;
-		stroke-dashoffset: 500;
-		fill: none;
-	}
-	&.as-circle-full svg circle {
-		@include animation('circle-full 2s ease-in-out alternate forwards');
-	}
-	&.as-circle-none svg circle {
-		@include animation('circle-none 2s ease-in-out forwards');
-	}
-	@include keyframes(circle-full) {
-		0% { stroke-dashoffset: 500;}
-		100% { stroke-dashoffset: 0;}
-	}
-	@include keyframes(circle-none) {
-		0% { stroke-dashoffset: 0;}
-		100% { stroke-dashoffset: 500;}
-	}
-}
-
-.scroll-button {
-	display: none;
-	width: 60px;
-	height: 60px;
-	position:fixed;
-	right:20px;
-	bottom:20px;
-	cursor:pointer;
-	z-index:1;
-	opacity:0.5;
-	@include transition(all, .3s, ease-in-out);
-	svg{
-		display:none;
-		line {
-			stroke: #999;
-			stroke-width: 2px;
-		}
-		circle {
-			stroke: #999;
-			stroke-width: 2px;
-			stroke-dashoffset: 500;
-			fill: none;
+		h1{
+			@include font-size(3.0);
+			text-align:center;
+			margin-bottom:10px;
+			letter-spacing:5px;
+			font-weight:100;
+			text-transform:uppercase;
 		}
 	}
-	&:hover{
-		opacity:1;
-	}
 }
 
-.video-page{
-	h1{
-		@include font-size(3.0);
-		text-align:center;
-		margin-bottom:10px;
-		letter-spacing:5px;
-		font-weight:100;
-		text-transform:uppercase;
-	}
-	
-}
-
-.gallery{
-	.vimeo{
-		margin-bottom:20px;
-	}
-}

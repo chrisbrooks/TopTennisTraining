@@ -1,13 +1,83 @@
 .vimeo{
 	position:relative;
 	background:$black;
-	height:400px;
 	overflow:hidden;
-	border-radius: 3px 0px 0px 3px;
+	border-radius: 3px;
+
 	iframe{
 		width:100%;
 		height:100%;
 	}
+
+	.play-button{
+		position: absolute;
+		z-index: 1;
+		width:50px;
+		height:50px;
+		margin-left:-25px;
+		margin-top:-25px;
+		border: 2px solid $white;
+		background: rgba(0,0,0,0.1);
+		border-radius: 50%;
+		text-indent: -9999px;
+		left: 50%;
+		top: 50%;
+		@include prefixed(transition, all .35s ease);
+
+		&:after{
+			content: '';
+			width: 0;
+			height: 0;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 15px solid $white;
+			margin-left: -6px;
+			margin-top: -10px;
+			@include prefixed(transition, all .35s ease);
+		}
+
+		&:hover {
+			border: 2px solid $blue;
+
+			&:after {
+				border-left: 15px solid $blue;
+			}
+		}
+
+		&:active, &:focus{
+			border:none;
+			outline:none;
+		}
+
+		@media (min-width: $screen-sm-min)  {
+			width: 90px;
+			height: 90px;
+			margin-left: -45px;
+			margin-top: -45px;
+			border: 3px solid white;
+			margin-bottom: 0px;
+
+			&:after {
+				border-top: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-left: 30px solid $white;
+				margin-left: -10px;
+				margin-top: -20px;
+			}
+
+			&:hover{
+				border: 3px solid $blue;
+
+				&:after{
+					border-left: 30px solid $blue;
+				}
+			}
+		}
+	}
+
 	.video-content{
 		cursor:pointer;
 		height:100%;
@@ -16,21 +86,54 @@
 		position: absolute;
     	top: 0px;
     	width: 100%;
+    	border-radius: 3px;
+
 		&:hover{
+
 			.play-button{
-				border: 3px solid $blue;
+				border: 2px solid $blue;
+
 				&:after{
-					border-left: 30px solid $blue;
+					border-left: 15px solid $blue;
 				}
+
+				@media (min-width: $screen-sm-min)  {
+					border: 3px solid $blue;
+
+					&:after{
+						border-left: 30px solid $blue;
+					}
+				}
+
 			}
 		}
+
+		.video-title{
+			position: absolute;
+			color: $white;
+			z-index: 1;
+			bottom: 12px;
+			left: 15px;
+			@include font-size(1.4);
+			letter-spacing: 2px;
+
+			@media (min-width: $screen-sm-min)  {
+				@include font-size(1.7);
+				bottom: 15px;
+				left: 20px;
+				letter-spacing: 3px;
+			}
+		}
+
 		.overlay{
 			position: absolute;
 			width: 100%;
 			height: 100%;
 			top: 0px;
 			background-size: cover !important;
+
 			&:after{
+				border-radius: 3px;
 				content:'';
 				width: 100%;
 				height: 100%;
@@ -43,81 +146,6 @@
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
 			}
 		}
-		.play-button{
-			position: absolute;
-			z-index: 1;
-			width: 90px;
-			height: 90px;
-			background: rgba(0,0,0,0.1);
-			border: 3px solid white;
-			border-radius: 50%;
-			text-indent: -9999px;
-			left: 50%;
-			top: 50%;
-			margin-left: -45px;
-			margin-top: -45px;
-			@include transition(all, .35s, ease);
-			&:after{
-				content: '';
-				width: 0;
-				height: 0;
-				border-top: 20px solid transparent;
-				border-bottom: 20px solid transparent;
-				border-left: 30px solid $white;
-				position: absolute;
-				left: 50%;
-				margin-left: -10px;
-				top: 50%;
-				margin-top: -20px;
-				@include transition(all, .35s, ease);
-			}
-			&:hover{
-				border: 3px solid $blue;
-				&:after{
-					border-left: 30px solid $blue;
-				}
-			}
-			&:active, &:focus{
-			border:none;
-			outline:none;
-			}
-			&.small{
-				position: absolute;
-				z-index: 1;
-				width: 34px;
-				height: 34px;
-				background: rgba(0,0,0,0.1);
-				border: 2px solid $blue;
-				border-radius: 50%;
-				text-indent: -9999px;
-				left: 15px;
-				bottom: 15px;
-				top: auto;
-				margin: 0px;
-				&:after{
-					content: '';
-					width: 0;
-					height: 0;
-					border-top: 8px solid transparent;
-					border-bottom: 8px solid transparent;
-					border-left: 12px solid $blue;
-					position: absolute;
-					left: 50%;
-					margin-left: -4px;
-					top: 50%;
-					margin-top: -8px;
-				}
-			}
-		}
-		.video-title{
-			position: absolute;
-			color: white;
-			bottom: 15px;
-			z-index: 1;
-			left: 20px;
-			@include font-size(1.7);
-			letter-spacing: 3px;
-		}
 	}
 
 	.error-text{
@@ -126,76 +154,106 @@
 		display: table;
 		width: 100%;
 		height: 100%;
-		@include font-size(3.0);
-		color: #666;
+		@include font-size(1.4);
+		color: $white;
+		letter-spacing: 2px;
+
 		p{
 			display: table-cell;
 			vertical-align: middle;
 		}
+
+		@media (min-width: $screen-sm-min)  {
+			@include font-size(3.0);
+		}
 	}
 
-	&.small{
-		height:200px;
-		border-radius: 0px 3px 3px 0px;
-		.video-content{
-			&:hover{
-				.play-button{
-					border: 2px solid $blue;
-					&:after{
-						border-left: 15px solid $blue;
-					}
-				}
-			}
-			.play-button{
-				width:50px;
-				height:50px;
-				margin-left:-25px;
-				margin-top:-25px;
-				border: 2px solid $white;
-				&:after{
-					border-top: 10px solid transparent;
-					border-bottom: 10px solid transparent;
-					border-left: 15px solid $white;
-					margin-left: -6px;
-					margin-top: -10px;
-				}
-				&:hover{
-					border: 2px solid $blue;
-					&:after{
-						border-left: 15px solid $blue;
-					}
-				}
-				&.small{
-					width:24px;
-					height:24px;
-					margin:0px;
-					left:10px;
-					bottom:10px;
-					border:2px solid $blue;
-					&:after{
-						border-top: 4px solid transparent;
-						border-bottom: 4px solid transparent;
-						border-left: 6px solid $blue;
-						margin-left: -2px;
-						margin-top: -4px;
-					}
-				}
-			}
-			.video-title{
-			    bottom: 12px;
-				left: 15px;
-				@include font-size(1.4);
-				letter-spacing: 2px;
-			}
-			.logo{
-				top: 7px;
-				right: 7px;
-				width: 50px;
-				height: 38px;
+	&.banner {
+		height:250px;
+		margin-bottom: 30px;
+
+		@media (min-width: $screen-sm-min)  {
+			height:400px;
+		}
+	}
+	
+	&.thumbnail{
+		height:250px;
+
+		@media (min-width: $screen-sm-min)  {
+			height:200px;
+		}
+
+		&.taller {
+			height:250px;
+
+			@media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+				height:200px;
 			}
 		}
-		.error-text{
-			@include font-size(2.0);
+
+		//changing the generic vimeo styles
+
+		.error-text {
+			@include font-size(1.4);
+		}
+
+		.video-title {
+		    bottom: 12px;
+			left: 15px;
+			@include font-size(1.4);
+			letter-spacing: 2px;
+		}
+
+		.video-content {
+
+			&:hover{
+
+				.play-button{
+					border: 2px solid $blue;
+					
+					&:after{
+						border-left: 15px solid $blue;
+					}
+				}
+			}
+		}
+
+		.play-button {
+			width:50px;
+			height:50px;
+			margin-left:-25px;
+			margin-top:-25px;
+			border: 2px solid $white;
+
+			&:after {
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+				border-left: 15px solid $white;
+				margin-left: -6px;
+				margin-top: -10px;
+			}
+
+			&:hover {
+				border: 2px solid $blue;
+
+				&:after {
+					border-left: 15px solid $blue;
+				}
+			}
+		}
+	}
+}
+
+//vimeo thumbnails
+
+.thumbnails {
+
+	li {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0px;
 		}
 	}
 }

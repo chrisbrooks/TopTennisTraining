@@ -7,15 +7,14 @@ var paths = {
 
 var scriptsList = {
 	'app/build/scripts/combined.min.js': [
-		paths.assets + 'scripts/custom/vimeo.js',
+		paths.assets + 'scripts/custom/vimeo-banner.js',
 		paths.assets + 'scripts/custom/initialize.js',
 	],
 	'app/build/scripts/plugins.min.js': [
 		paths.bower + 'jquery/dist/jquery.min.js',
 		paths.bower + 'jquery_lazyload/jquery.lazyload.js',
 		paths.assets + 'scripts/vendor/viewportchecker.js',
-		paths.bower + 'jQuery.mmenu/dist/js/jquery.mmenu.min.js',
-		paths.bower + 'jQuery.mmenu/dist/js/addons/jquery.mmenu.dragopen.min.js',
+		paths.assets + 'scripts/vendor/jquery.mmenu.min.js',
 		paths.assets + 'scripts/vendor/jquery.bxslider.js'
 	]
 };

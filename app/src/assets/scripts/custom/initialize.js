@@ -1,108 +1,175 @@
-$(function() {
-	$(".lazy").lazyload({
-	    effect : "fadeIn"
-	});
-});
+var GLOBAL = GLOBAL || {};
 
-$(document).ready(function(){
-  $('.bxslider').bxSlider({
-  	pagerCustom: '#bx-pager'
-  });
-});
-
-$( document ).ready(function() {
-
-   /* setTimeout(function() {
-       $('.curtain').removeClass('waiting');
-    }, 2000);*/
-
-    
-	$('.menu > li').on({
-		mouseenter: function (){
-			if($(this).find('.dropdown').length){
-				$(this).addClass('open');
-				$('.sub-nav').addClass('open');
-			}
-		},
-		mouseleave:function (){
-			$(this).removeClass('open');
-			$('.sub-nav').removeClass('open');
-		}
-	});	
+GLOBAL.$dom = $(document);
 
 
-	$('.section-text').addClass('opacity').viewportChecker({
-		classToAdd: 'visible animated fadeInUp',
-		offset: 100
-	});
+GLOBAL.plugins = {
 
-	$(window).on( "scroll", function() {
-	    if ($(window).scrollTop() >= 100) {
-	        $('.header').addClass('slide-up');
-	    }else{
-	    	$('.header').removeClass('slide-up');
-	    }
-	});
-
-	/*var pageHeight = $(window).height(),
-		headerHeight = $('.header').outerHeight(),
-		bannerHeight = pageHeight - bannerHeight;
-
-	$('.banner').css('height', bannerHeight);
-
-	$(window).on( "resize", function() {
-		var pageHeight = $(window).height(),
-		headerHeight = $('.header').outerHeight(),
-		bannerHeight = pageHeight - bannerHeight;
-		$('.banner').css('height', bannerHeight);
-	});*/
-
-	$('.arrow-down').on('mouseenter', function() {
-		$(this).removeClass('as-circle-none').addClass('as-circle-full');
-	}).on('mouseleave', function() {
-		$(this).removeClass('as-circle-full').addClass('as-circle-none');
-	});
-
-	$('.scroll-button').on('click', function () {
-		$('body').animate({scrollTop: 0}, 800, 'swing');
-		return false;
-	});
-
-	var scroller = $('.scroll-button, .scroll-button svg');
-
-	function scrolling() {
-		if ($(this).scrollTop() > 100 && $(window).width() > 767) {
-			scroller.fadeIn();
-		} else {
-			scroller.fadeOut();
-		}
-	}
-
-	$(window).on('scroll', function () {
-		scrolling();
-	});
-
-	scrolling();
-
-	$('.vimeo.thumbnail').each(function(index) {
-		$(this).on('click', function() {
-			var video = $(this);
-			$("html, body").animate({ scrollTop: $('.vimeo.banner').offset().top -100 }, 300, function(){	
-				videoSwitch(video);
-			});
+	lazyload: function () {
+		GLOBAL.$dom.find('.lazy').lazyload({
+		    effect : "fadeIn"
 		});
-	});
+	},
 
-	function videoSwitch(video){
-		var iframe = $('.vimeo.banner').find('iframe');
+	mobileNavigation: function () {
 
-		$('.vimeo').find('iframe').attr('src', 'https://player.vimeo.com/video/' + video.attr('data-href') + '');
-		iframe.attr('src', iframe.attr('src')+'?autoplay=1');
+		var $menu = GLOBAL.$dom.find(".navigation").clone();
 
-		setTimeout(function(){
-			$('.vimeo.banner').find('.video-content').hide();
-		}, 300);
+		$menu.attr( "id", "mobile-navigation" );
+
+		$menu.mmenu({
+			navbar: {
+				title: 'Top Tennis Training'
+			}
+		}, {
 		
+		offCanvas: {
+			pageNodetype: "main"
+		}
+
+	    }).on('init', function(){
+
+			GLOBAL.$dom.find('#mobile-navigation').find('.logo-container').remove();
+			GLOBAL.$dom.find('#mobile-navigation').find('.container').removeClass('container');
+
+	    }).trigger( "init" );
+
+	},
+
+	viewPort: function () {
+		GLOBAL.$dom.find('.section-text').addClass('opacity').viewportChecker({
+			classToAdd: 'visible animated fadeInUp',
+			offset: 100
+		});
+	},
+
+	vimeo: function () {
+		GLOBAL.$dom.find('.vimeo').vimeoVideo();
+	}
+};
+
+
+GLOBAL.general = {
+
+	menuAction: function (){
+
+		GLOBAL.$dom.find('.menu > li').on({
+			mouseenter: function (){
+				if($(this).find('.dropdown').length){
+					$(this).addClass('open');
+				}
+			},
+			mouseleave:function (){
+				$(this).removeClass('open');
+			}
+		});
+	},
+
+	headerHide: function (){
+
+		function slideUP(){
+			if ($(window).scrollTop() >= 100) {
+		        GLOBAL.$dom.find('.header').addClass('slide-up');
+		    }else{
+		    	GLOBAL.$dom.find('.header').removeClass('slide-up');
+		    }
+		}
+
+		$(window).on( "scroll", function() {
+		   	slideUP(); 
+		});
+	},
+
+	arrowScrolling: function (){
+
+		var scroller = GLOBAL.$dom.find('.arrow-up, .arrow-up svg');
+
+		function scrolling() {
+			if ($(this).scrollTop() > 100 && $(window).width() > 767) {
+				scroller.fadeIn();
+			} else {
+				scroller.fadeOut();
+			}
+		}
+
+		$(window).on('scroll', function () {
+			scrolling();
+		});
+
+		scrolling();
+
+	},
+
+	arrowFunctions: function (){
+
+		GLOBAL.$dom.find('.arrow-down').on('mouseenter', function() {
+
+			$(this).removeClass('as-circle-none').addClass('as-circle-full');
+
+		}).on('mouseleave', function() {
+
+			$(this).removeClass('as-circle-full').addClass('as-circle-none');
+
+		});
+
+		GLOBAL.$dom.find('.arrow-down').on('click', function () {
+			
+			var headerHeight = GLOBAL.$dom.find('.header').outerHeight() - 35;
+
+			$('body').animate({scrollTop: GLOBAL.$dom.find('.content').offset().top - headerHeight}, 800, 'swing');
+
+			return false;
+		});
+
+		GLOBAL.$dom.find('.arrow-up').on('click', function () {
+
+			$('body').animate({scrollTop: 0}, 800, 'swing');
+
+			return false;
+		});
+
 	}
 
-});
+};
+
+
+GLOBAL.ctrl = {
+	exec: function( controller, action ) {
+		var ns = GLOBAL.ctrl,
+		action = ( action === undefined ) ? 'init' : action;
+
+		if ( controller !== "" && ns[controller] && typeof ns[controller][action] == 'function' ) {
+			ns[controller][action]();
+		}
+	},
+
+	init: function() {
+		var body = document.body,
+		controller = body.getAttribute('data-controller'),
+		action = body.getAttribute('data-action');
+
+		GLOBAL.ctrl.exec('common');
+		GLOBAL.ctrl.exec( controller );
+		GLOBAL.ctrl.exec( controller, action );
+	},
+
+	common: {
+		init: function() {
+			'use strict';
+			GLOBAL.portfolio.init();
+			GLOBAL.plugins.lazyload();
+			GLOBAL.plugins.mobileNavigation();
+			GLOBAL.plugins.viewPort();
+			GLOBAL.plugins.vimeo();
+			GLOBAL.general.menuAction();
+			GLOBAL.general.headerHide();
+			GLOBAL.general.arrowScrolling();
+			GLOBAL.general.arrowFunctions();
+
+			
+		}
+	}
+};
+
+
+$( document ).ready( GLOBAL.ctrl.init );

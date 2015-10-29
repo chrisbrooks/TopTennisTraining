@@ -2,7 +2,10 @@ html{
 	font-size: 62.5%; 
 } 
 body{ 
-	font-size: 1.2rem; 
+	font-size: 1.2rem;
+	color:$black;
+	line-height: normal;
+	background: $black;
 }
 
 body,html{
@@ -12,14 +15,10 @@ body,html{
 	height:100%;
 }
 
-.main{
-	&.inner-page{
-		padding-top:111px;
-	}
-}
-
 a{
 	text-decoration:none;
+	@include prefixed(transition, color .35s ease);
+	@include hardwareAccel();
 	&:hover{
 		text-decoration:none;
 	}
@@ -28,7 +27,6 @@ a{
 h1,h2,h3,h4,h5,h6,p{
 	margin:0px;
 }
-
 
 ul{
 	margin:0px;
@@ -49,4 +47,25 @@ ul{
 
 .visible{
 	opacity:1;
+}
+
+.main {
+	height: 100%;
+}
+
+.content{
+
+	&.inner-page{
+		padding-top:111px;
+	}
+}
+
+.section{
+	padding:40px 0px;
+	position: relative;
+	background: $white;
+
+	@media (min-width: $screen-sm-min) {
+		padding:80px 0px;
+	}
 }
