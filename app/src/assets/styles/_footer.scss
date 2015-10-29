@@ -14,10 +14,17 @@
 		.social-container{
 			display:table;
 			margin:30px auto;
+			width: 100%;
 			.social{
 				li{
-					float:left;
-					margin:0px 10px;
+					float:none;
+					margin:0 auto;
+					margin-bottom: 15px;
+
+					&:last-child {
+						margin-bottom: 0px;
+					}
+
 					a.btn{
 						padding:5px 20px;
 						margin-bottom:0px;
@@ -49,6 +56,19 @@
 				}
 			}
 		}
-		
 	}
+
+	@media (min-width: $screen-sm-min)  {
+		.footer-content .social-container {
+			width:auto;
+
+			.social {
+				li {
+					float:left;
+					margin:0px 10px;
+					margin-bottom: 0px;
+				}
+			}
+		}
+	} 
 }

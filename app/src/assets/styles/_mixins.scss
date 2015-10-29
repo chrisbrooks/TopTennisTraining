@@ -7,132 +7,6 @@ $grey-dark: #222;
 $grey: #999;
 $light-grey: #f2f2f2;
 
-
-
-@mixin transition($transition-property, $transition-time, $method) {
-    -webkit-transition: $transition-property $transition-time $method;
-    -moz-transition: $transition-property $transition-time $method;
-    -ms-transition: $transition-property $transition-time $method;
-    -o-transition: $transition-property $transition-time $method;
-    transition: $transition-property $transition-time $method;
-}
-
-@mixin rotateY ($deg) {
-	-webkit-transform: rotateY($deg);
-	-moz-transform: rotateY($deg);
-	-ms-transform: rotateY($deg);
-	-o-transform: rotateY($deg);
-}
-
-@mixin transform($transforms) {
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-  transform: $transforms;
-}
-
-@mixin rotate ($deg) {
-  @include transform(rotate(#{$deg}deg));
-}
-
-
-@mixin scale($scale) {
-  @include transform(scale($scale));
-}
-
-@mixin translate ($x, $y) {
-  @include transform(translate($x, $y));
-}
-
-@mixin skew ($x, $y) {
-  @include transform(skew(#{$x}deg, #{$y}deg));
-}
-
-@mixin transform-origin ($origin) {
-  moz-transform-origin: $origin;
-  -o-transform-origin: $origin;
-  -ms-transform-origin: $origin;
-  -webkit-transform-origin: $origin;
-  transform-origin: $origin;
-}
-
-@mixin translate3d($x, $y, $z) {
-  -webkit-transform: translate3d($x, $y, $z);
-  -moz-transform: translate3d($x, $y, $z);
-  -o-transform: translate3d($x, $y, $z);
-  transform: translate3d($x, $y, $z);
-}
-
-
-/*.test {
-  @include skew(25,10);
-  @include transform-origin(top left);
-  position: absolute;
-  top: 25%;
-  bottom: 25%;
-  left: 25%;
-  right: 25%;
-  background-color: rgba(20,20,20,.5);
-}*/
-
-@mixin border_radius ($radius: 4px) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -o-border-radius: $radius;
-  border-radius: $radius;
-}
-
-@mixin transform ($transform) {
-  -webkit-transform: $transform;
-  -moz-transform: $transform;
-  -o-transform: $transform;
-  transform: $transform;
-}
-
-@mixin box_shadow ($shadow) {
-  -webkit-box-shadow: $shadow;
-  -moz-box-shadow: $shadow;
-  -o-box-shadow: $shadow;
-  box-shadow: $shadow;
-}
-
-@mixin opacity($value) {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=" + ($value * 100) + ")"; /* for IE8 in IE7 mode */
-  filter: alpha(opacity=($value * 100)); /* for IE6-IE8 */
-  -moz-opacity: ($value);
-  opacity: ($value);
-}
-
-@mixin backface ($hidden) {
-	-webkit-backface-visibility: ($hidden);
-	-moz-backface-visibility: ($hidden);
-	-ms-backface-visibility: ($hidden);
-	backface-visibility: ($hidden);
-}
-
-@mixin radius($radius) {
--webkit-border-radius: $radius;
-border-radius: $radius;
-}
-
-@mixin animation($animate...) {
-    $max: length($animate);
-    $animations: '';
-
-    @for $i from 1 through $max {
-        $animations: #{$animations + nth($animate, $i)};
-
-        @if $i < $max {
-            $animations: #{$animations + ", "};
-        }
-    }
-    -webkit-animation: $animations;
-    -moz-animation:    $animations;
-    -o-animation:      $animations;
-    animation:         $animations;
-}
-
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
@@ -182,19 +56,11 @@ $o: false !default;
 }
 
 
-
-
-// As is often the case, some devices/browsers need additional code to get CSS to work
-// in the most desired way. These mixins are used to quickly drop in hacks for each element
-// Find out more here: https://github.com/IanLunn/Hover/wiki/Hacks-Explained
-
 @mixin hardwareAccel() {
-  // Improve performance on mobile/tablet devices
   @include prefixed(transform, translateZ(0));
 }
 
 @mixin improveAntiAlias() {
-  // Improve aliasing on mobile/tablet devices
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
@@ -205,7 +71,6 @@ $o: false !default;
 }
 
 @mixin forceBlockLevel() {
-  // Transforms need to be block-level to work
   display: inline-block;
   vertical-align: middle;
 }
