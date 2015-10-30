@@ -58,10 +58,7 @@
                 if(video.this.hasClass('thumbnail')){
 
                     video.this.append(
-                        output += ')"><button class="play-button" id="play-button">Play</button>
-                        <div class="overlay"></div>
-                        <div class="video-title">' + data.title +'</div>
-                        </div>'
+                        output += ')"><button class="play-button" id="play-button">Play</button><div class="overlay"></div><div class="video-title">' + data.title +'</div></div>'
                     );
 
                     videoThumbnailPlay(data);
@@ -69,10 +66,7 @@
                 } else {
                     
                     video.this.html(data.html).append(
-                        output += ')"><button class="play-button" id="play-button">Play</button>
-                        <div class="overlay"></div>
-                        <div class="video-title">' + data.title +'</div>
-                        </div>'
+                        output += ')"><button class="play-button" id="play-button">Play</button><div class="overlay"></div><div class="video-title">' + data.title +'</div></div>'
                     );
 
                     videoBannerPlay(data);

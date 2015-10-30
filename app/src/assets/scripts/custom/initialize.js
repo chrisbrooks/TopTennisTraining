@@ -7,7 +7,7 @@ GLOBAL.plugins = {
 
 	lazyload: function () {
 		GLOBAL.$dom.find('.lazy').lazyload({
-		    effect : "fadeIn"
+			effect : "fadeIn"
 		});
 	},
 
@@ -27,12 +27,12 @@ GLOBAL.plugins = {
 			pageNodetype: "main"
 		}
 
-	    }).on('init', function(){
+		}).on('init', function(){
 
 			GLOBAL.$dom.find('#mobile-navigation').find('.logo-container').remove();
 			GLOBAL.$dom.find('#mobile-navigation').find('.container').removeClass('container');
 
-	    }).trigger( "init" );
+		}).trigger( "init" );
 
 	},
 
@@ -69,14 +69,14 @@ GLOBAL.general = {
 
 		function slideUP(){
 			if ($(window).scrollTop() >= 100) {
-		        GLOBAL.$dom.find('.header').addClass('slide-up');
-		    }else{
-		    	GLOBAL.$dom.find('.header').removeClass('slide-up');
-		    }
+				GLOBAL.$dom.find('.header').addClass('slide-up');
+			}else{
+				GLOBAL.$dom.find('.header').removeClass('slide-up');
+			}
 		}
 
 		$(window).on( "scroll", function() {
-		   	slideUP(); 
+			slideUP(); 
 		});
 	},
 
