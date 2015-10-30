@@ -135,8 +135,8 @@ GLOBAL.general = {
 
 GLOBAL.ctrl = {
 	exec: function( controller, action ) {
-		var ns = GLOBAL.ctrl,
-		action = ( action === undefined ) ? 'init' : action;
+		var ns = GLOBAL.ctrl;
+			action = ( action === undefined ) ? 'init' : action;
 
 		if ( controller !== "" && ns[controller] && typeof ns[controller][action] == 'function' ) {
 			ns[controller][action]();
@@ -156,7 +156,6 @@ GLOBAL.ctrl = {
 	common: {
 		init: function() {
 			'use strict';
-			GLOBAL.portfolio.init();
 			GLOBAL.plugins.lazyload();
 			GLOBAL.plugins.mobileNavigation();
 			GLOBAL.plugins.viewPort();
