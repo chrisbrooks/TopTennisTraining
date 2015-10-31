@@ -22,7 +22,7 @@ GLOBAL.plugins = {
 				title: 'Top Tennis Training'
 			}
 		}, {
-		
+
 		offCanvas: {
 			pageNodetype: "main"
 		}
@@ -76,7 +76,7 @@ GLOBAL.general = {
 		}
 
 		$(window).on( "scroll", function() {
-		   	slideUP(); 
+		   	slideUP();
 		});
 	},
 
@@ -113,7 +113,7 @@ GLOBAL.general = {
 		});
 
 		GLOBAL.$dom.find('.arrow-down').on('click', function () {
-			
+
 			var headerHeight = GLOBAL.$dom.find('.header').outerHeight() - 35;
 
 			$('body').animate({scrollTop: GLOBAL.$dom.find('.content').offset().top - headerHeight}, 800, 'swing');
@@ -156,7 +156,6 @@ GLOBAL.ctrl = {
 	common: {
 		init: function() {
 			'use strict';
-			GLOBAL.portfolio.init();
 			GLOBAL.plugins.lazyload();
 			GLOBAL.plugins.mobileNavigation();
 			GLOBAL.plugins.viewPort();
@@ -166,7 +165,7 @@ GLOBAL.ctrl = {
 			GLOBAL.general.arrowScrolling();
 			GLOBAL.general.arrowFunctions();
 
-			
+
 		}
 	}
 };

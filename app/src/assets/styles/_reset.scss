@@ -1,11 +1,10 @@
-html{ 
-	font-size: 62.5%; 
-} 
-body{ 
+html{
+	font-size: 62.5%;
+}
+body{
 	font-size: 1.2rem;
 	color:$black;
 	line-height: normal;
-	background: $black;
 }
 
 body,html{
@@ -17,7 +16,7 @@ body,html{
 
 a{
 	text-decoration:none;
-	@include prefixed(transition, color .35s ease);
+	@include prefixed(transition, all .35s ease);
 	@include hardwareAccel();
 	&:hover{
 		text-decoration:none;
