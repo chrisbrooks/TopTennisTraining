@@ -52,8 +52,9 @@
 				text-transform: uppercase;
 				font-weight: 100;
 				opacity: 0;
-				margin-left:-200px;
-				@include prefixed(animation, bannerH2 .5s ease-in forwards 0.7s);
+				top:50px;
+				position: relative;
+				@include prefixed(animation, bannerH2 .5s ease-in forwards 1s);
 			}
 
 			h3 {
@@ -64,8 +65,9 @@
 				color: white;
 				font-weight: 400;
 				opacity: 0;
-				margin-left: 200px;
-				@include prefixed(animation, bannerH3 .5s ease-in forwards 0.7s);
+				top: -50px;
+				position: relative;
+				@include prefixed(animation, bannerH3 .5s ease-in-out forwards 1s);
 			}
 
 			.btn.white {
@@ -81,7 +83,7 @@
 				margin: 25px 0px 0px;
 				@include font-size(1.7);
 				opacity: 0;
-				@include prefixed(animation, opacity .5s ease-in forwards 1.2s);
+				@include prefixed(animation, opacity .5s ease-in-out forwards 1.5s);
 
 				&:before {
 					border-radius:2px;
@@ -111,11 +113,11 @@
 
 			0% {
 				opacity: 0;
-				margin-left:-100px;
+				top:50px;
 			}
 			100% {
 				opacity: 1;
-				margin-left: 0px;
+				top: 0px;
 			}
 		}
 
@@ -123,11 +125,11 @@
 
 			0% {
 				opacity: 0;
-				margin-left: 100px;
+				top: -50px;
 			}
 			100% {
 				opacity: 1;
-				margin-left: 0;
+				top: 0;
 			}
 		}
 

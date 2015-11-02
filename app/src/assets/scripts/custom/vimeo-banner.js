@@ -43,7 +43,7 @@
 
             function vimeoVideo(data) {
 
-                var output = '<div class="video-content" style="background: url(';
+                var output = '<div class="video-content"><button class="play-button" id="play-button">Play</button><div class="overlay" style="background: url(';
 
                 if (video.this.attr('data-background')) {
 
@@ -58,7 +58,7 @@
                 if(video.this.hasClass('thumbnail')){
 
                     video.this.append(
-                        output += ')"><button class="play-button" id="play-button">Play</button><div class="overlay"></div><div class="video-title">' + data.title +'</div></div>'
+                        output += ')"></div><div class="video-title">' + data.title +'</div></div>'
                     );
 
                     videoThumbnailPlay(data);
@@ -66,7 +66,7 @@
                 } else {
                     
                     video.this.html(data.html).append(
-                        output += ')"><button class="play-button" id="play-button">Play</button><div class="overlay"></div><div class="video-title">' + data.title +'</div></div>'
+                        output += ')"></div><div class="video-title">' + data.title +'</div></div>'
                     );
 
                     videoBannerPlay(data);
